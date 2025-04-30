@@ -3,8 +3,8 @@ import React from "react";
 
 function Header() {
   return (
-    <header className=" text-white w-full">
-      <div className="flex justify-between px-10 py-8 items-center">
+    <header className=" text-white w-full sticky">
+      <div className="flex justify-between  py-8 items-center">
         {/* Left Navigation */}
         <nav className="flex items-center gap-6 text-white/80">
           <Link href="/" className="hover:text-gray-400">
