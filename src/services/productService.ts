@@ -1,6 +1,6 @@
 // services/productService.ts
 import apiClient from '@/lib/axios';
-import { Product, ProductListResponse, Category } from '@/types/productTypes';
+import { Product, Category, ProductListResponse } from '@/types/productTypes';
 
 // Fetch all products
 // services/products.ts

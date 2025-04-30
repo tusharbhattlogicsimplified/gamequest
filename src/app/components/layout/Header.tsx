@@ -1,3 +1,5 @@
+import IMAGES from "@/utils/imagePaths";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -22,7 +24,13 @@ function Header() {
 
         {/* Search */}
         <div className="flex justify-between items-center gap-6">
-          <div className="w-96 px-5 py-2 rounded-full bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2">
+          <div className="w-96 px-5 py-2 rounded-full bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 flex gap-x-4">
+            <Image
+              src={IMAGES.searchIcon.src}
+              width={20}
+              height={20}
+              alt={IMAGES.searchIcon.alt}
+            />
             <input
               type="text"
               placeholder="What are you looking for?"
@@ -31,15 +39,32 @@ function Header() {
           </div>
           <span className="h-5 w-px bg-gray-600" />
           <div>
-            icon 1
+            <Image
+              src={IMAGES.notificationIcon.src}
+              width={40}
+              height={40}
+              alt={IMAGES.notificationIcon.alt}
+            />
           </div>
           <span className="h-5 w-px bg-gray-600" />
           <div>
-            icon 2
+            {" "}
+            <Image
+              src={IMAGES.shopIcon.src}
+              width={40}
+              height={40}
+              alt={IMAGES.shopIcon.alt}
+            />
           </div>
           <span className="h-5 w-px bg-gray-600" />
           <div>
-            icon 3
+            {" "}
+            <Image
+              src={IMAGES.emptyCircleIcon.src}
+              width={40}
+              height={40}
+              alt={IMAGES.emptyCircleIcon.alt}
+            />
           </div>
         </div>
       </div>

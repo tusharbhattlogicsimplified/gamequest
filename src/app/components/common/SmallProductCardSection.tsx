@@ -7,7 +7,7 @@ interface SmallProductCardSectionProps {
 
 const SmallProductCardSection: React.FC<SmallProductCardSectionProps> = ({ products }) => {
   return (
-    <div className="flex flex-wrap gap-4 py-8 px-8">
+    <div className="flex flex-wrap gap-4 py-8">
       {products.map((product, index) => (
         <ProductCardSmall key={index} productData={product} />
       ))}

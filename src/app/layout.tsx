@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Wallpoet } from "next/font/google";
+import { Aoboshi_One, Geist, Geist_Mono, Press_Start_2P, Wallpoet } from "next/font/google";
 import "./globals.css";
 import { Poppins } from 'next/font/google';
 
@@ -17,6 +17,20 @@ const wallpoet = Wallpoet({
   display: 'swap',
 });
 
+const press_Start_2P = Press_Start_2P({
+  subsets: ['latin'],
+  weight: ['400'], // choose as needed
+  variable: '--font-press_Start_2P', // Custom CSS variable
+  display: 'swap',
+});
+
+const aoboshi_One = Aoboshi_One({
+  subsets: ['latin'],
+  weight: ['400'], // choose as needed
+  variable: '--font-aoboshi_One', // Custom CSS variable
+  display: 'swap',
+});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -31,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${wallpoet.variable}  antialiased`}
+        className={`${poppins.variable} ${wallpoet.variable} ${press_Start_2P.variable}  ${aoboshi_One.variable} antialiased`}
       >
         {children}
       </body>

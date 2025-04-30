@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #281F10;
   --foreground: #171717;
 }
 
@@ -11,12 +11,14 @@
   --font-sans: var(--font-poppins); /* Updated */
   --font-mono: var(--font-geist-mono);
   --font-title: var(--font-wallpoet);   /* ✅ Optional: for headings */
+  --font-standout: var(--font-press_Start_2P);   /* ✅ Optional: for headings */
+  --font-aoboshiOne: var(--font-aoboshi_One);   /* ✅ Optional: for headings */
 
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #281F10;
     --foreground: #ededed;
   }
 }

@@ -27,10 +27,10 @@ const navItems = [
 const bottomItems = [
   {
     href: "/settings",
-    icon: "/sidebarIcons/leaderboard.svg",
+    icon: "/sidebarIcons/settings.svg",
     label: "Settings",
   },
-  { href: "/logout", icon: "/sidebarIcons/leaderboard.svg", label: "Logout" },
+  { href: "/logout", icon: "/sidebarIcons/logout.svg", label: "Logout" },
 ];
 
 export default function Sidebar() {
