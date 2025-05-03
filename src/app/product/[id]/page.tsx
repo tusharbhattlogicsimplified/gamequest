@@ -1,40 +1,32 @@
-'use client'
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import ProductDetails from "../components/ProductDetails";
-import { fetchProductById } from "@/services/productService";
-import { useAppSelector } from "@/app/store/hooks";
-import { Product } from "@/types/productTypes";
+"use client"
+import { useAppSelector } from '@/app/store/hooks';
+import { fetchProductById } from '@/services/productService';
+import { Product } from '@/types/productTypes';
+import { useParams } from 'next/navigation';
+import router from 'next/router';
+import { useState, useEffect } from 'react';
+import ProductDetails from '../components/ProductDetails';
 
-// Type for the route segment props
-interface ProductDetailsPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function ProductDetailsPage({ params }: ProductDetailsPageProps) {
-  const router = useRouter();
-  const user = useAppSelector((state) => state.auth.user);
+export default function ProductDetailsPage() {
+  const { id } = useParams(); // Use `useParams` to get the dynamic parameter
 
   const [product, setProduct] = useState<Product | null>(null);
-
-  const productId = params.id;
+  const user = useAppSelector((state) => state.auth.user);
 
   useEffect(() => {
     if (!user) {
-      router.push("/login");
+      router.push('/login');
     }
 
     const fetchProduct = async () => {
-      const productData = await fetchProductById(Number(productId));
+      const productData = await fetchProductById(Number(id));
       setProduct(productData);
     };
 
-    if (productId) {
+    if (id) {
       fetchProduct();
     }
-  }, [user, productId, router]);
+  }, [user, id, router]);
 
   if (!user) {
     return null;
