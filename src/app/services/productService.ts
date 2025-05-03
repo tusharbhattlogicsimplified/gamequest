@@ -1,5 +1,5 @@
-import apiClient from '@/lib/axios';
-import { Product, Category, ProductListResponse } from '@/types/productTypes';
+import apiClient from '@/app/lib/axios';
+import { Product, Category, ProductListResponse } from '@/app/types/productTypes';
 
 // Fetch all products
 export const fetchProducts = async (limit?: number): Promise<ProductListResponse> => {

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import IMAGES from "@/utils/imagePaths";
+import IMAGES from "@/app/utils/imagePaths";
 
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/app/store/hooks";

@@ -4,8 +4,8 @@ import {
   fetchAllCategories,
   fetchProducts,
   fetchProductsByCategory,
-} from "@/services/productService";
-import { Category, Product } from "@/types/productTypes";
+} from "@/app/services/productService";
+import { Category, Product } from "@/app/types/productTypes";
 import ProductCardSmall from "../components/common/ProductCardSmall";
 import FilterSidebar from "./components/FilterSiderbar";
 import SortDropdown from "../components/ui/SortDropDown";

@@ -6,7 +6,7 @@ import Link from "next/link";
 import AvailableOn from "@/app/components/common/AvailableOn";
 import Button from "@/app/components/ui/Button";
 import RatingStars from "@/app/components/ui/RatingStars";
-import { Product } from "@/types/productTypes";
+import { Product } from "@/app/types/productTypes";
 
 
 export default function ProductCarousel({ products }: { products: Product[] }) {

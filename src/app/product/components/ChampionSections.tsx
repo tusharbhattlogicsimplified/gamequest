@@ -1,5 +1,5 @@
 import Button from "@/app/components/ui/Button";
-import { Product } from "@/types/productTypes";
+import { Product } from "@/app/types/productTypes";
 import Image from "next/image";
 import React from "react";
 

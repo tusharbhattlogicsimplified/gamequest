@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductCardLarge from './ProductCardLarge'; 
-import { Product } from '@/types/productTypes';
+import { Product } from '@/app/types/productTypes';
 
 interface LargeGameSectionsProps {
     products: Product[]; 

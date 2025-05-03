@@ -1,7 +1,7 @@
 "use client"
 import { useAppSelector } from '@/app/store/hooks';
-import { fetchProductById } from '@/services/productService';
-import { Product } from '@/types/productTypes';
+import { fetchProductById } from '@/app/services/productService';
+import { Product } from '@/app/types/productTypes';
 import { useParams } from 'next/navigation';
 import router from 'next/router';
 import { useState, useEffect } from 'react';

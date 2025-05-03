@@ -2,7 +2,7 @@ import Image from "next/image"; // for Next.js
 import Button from "../ui/Button";
 import RatingStars from "../ui/RatingStars";
 import Link from "next/link";
-import { Product } from "@/types/productTypes";
+import { Product } from "@/app/types/productTypes";
 
 interface ProductCardSmallProps {
   productData: Product;

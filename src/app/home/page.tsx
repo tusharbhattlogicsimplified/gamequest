@@ -3,11 +3,11 @@ import React, { ReactNode, useEffect, useState } from "react";
 import Sidebar from "../components/layout/Sidebar";
 import ProductCarousel from "./components/ProductCarousel";
 import ProductCardLarge from "../components/common/ProductCardLarge";
-import { fetchProducts } from "@/services/productService";
-import { Product } from "@/types/productTypes";
+import { fetchProducts } from "@/app/services/productService";
+import { Product } from "@/app/types/productTypes";
 import SmallProductCardSection from "../components/common/SmallProductCarousel";
 import Link from "next/link";
-import IMAGES from "@/utils/imagePaths";
+import IMAGES from "@/app/utils/imagePaths";
 import Image from "next/image";
 
 interface PageSectionProps {

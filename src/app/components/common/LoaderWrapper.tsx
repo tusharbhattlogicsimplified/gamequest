@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Loader } from './Loader';
-import { useLoader } from '@/contexts/LoaderContext';
+import { useLoader } from '@/app/contexts/LoaderContext';
 
 export const LoaderWrapper = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();

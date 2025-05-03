@@ -1,4 +1,4 @@
-import IMAGES from "@/utils/imagePaths";
+import IMAGES from "@/app/utils/imagePaths";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 
