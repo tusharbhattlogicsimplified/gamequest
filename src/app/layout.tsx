@@ -1,9 +1,7 @@
 "use client";
-import type { Metadata } from "next";
 import {
   Aoboshi_One,
-  Geist,
-  Geist_Mono,
+
   Press_Start_2P,
   Wallpoet,
 } from "next/font/google";
@@ -13,10 +11,9 @@ import localFont from "next/font/local";
 import { LoaderProvider } from "@/contexts/LoaderContext";
 import { LoaderWrapper } from "./components/common/LoaderWrapper";
 import { Provider } from "react-redux";
-import { persistor, store } from "./store";
+import {  store } from "./store";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
-import { PersistGate } from "redux-persist/integration/react";
 
 const poppins = Poppins({
   subsets: ["latin"],

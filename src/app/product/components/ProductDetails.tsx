@@ -1,8 +1,6 @@
 "use client";
 import React, { JSX, ReactNode, useEffect, useState } from "react";
 import { Product } from "@/types/productTypes";
-import Header from "@/app/components/layout/Header";
-import LinedFrame from "./LinedFrame";
 import LabelStrip from "@/app/components/ui/LabelStrip";
 import RatingStars from "@/app/components/ui/RatingStars";
 import AnimatedProductName from "./AnimatedProductName";
@@ -15,7 +13,6 @@ import Image from "next/image";
 import IMAGES from "@/utils/imagePaths";
 import SecondaryProductBanner from "./SecondaryProductBanner";
 import SmallProductCardSection from "@/app/components/common/SmallProductCarousel";
-import Footer from "@/app/components/layout/Footer";
 import { fetchProductsByCategory } from "@/services/productService";
 import Link from "next/link";
 import { useLoader } from "@/contexts/LoaderContext";

@@ -14,8 +14,6 @@ function ChampionSection({
   product: Product;
   reverse?: boolean;
 }) {
-  const textAlign = reverse ? "items-end text-right" : "items-start text-left";
-  const buttonJustify = reverse ? "justify-end" : "justify-start";
 
   return (
     <div

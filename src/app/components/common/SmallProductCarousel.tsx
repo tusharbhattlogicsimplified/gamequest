@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
 import ProductCardSmall from './ProductCardSmall';
+import { Product } from '@/types/productTypes';
 
 interface SmallProductCardSectionProps {
-  products: any[];
+  products: Product[];
 }
 
 const SmallProductCardSection: React.FC<SmallProductCardSectionProps> = ({ products }) => {

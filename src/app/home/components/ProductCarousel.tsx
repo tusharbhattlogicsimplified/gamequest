@@ -18,11 +18,6 @@ export default function ProductCarousel({ products }: { products: Product[] }) {
     setActiveIndex((prev) => (prev + 1) % products.length);
   };
 
-  const prevSlide = () => {
-    setDirection("left");
-    setActiveIndex((prev) => (prev - 1 + products.length) % products.length);
-  };
-
   const goToSlide = (index: number) => {
     setDirection(index > activeIndex ? "right" : "left");
     setActiveIndex(index);

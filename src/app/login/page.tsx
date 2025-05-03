@@ -3,13 +3,12 @@
 import { useState } from "react";
 import Button from "../components/ui/Button";
 import { InputField } from "../components/ui/InputField";
-import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { useAppDispatch } from "../store/hooks";
 import { useRouter } from "next/navigation";
 import { login } from "../store/authSlice";
 import Link from "next/link";
 
 export default function LoginPage() {
-  const { user } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
 
   const [form, setForm] = useState({ username: "", password: "" });

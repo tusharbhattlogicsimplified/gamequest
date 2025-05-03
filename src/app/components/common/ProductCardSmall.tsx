@@ -2,15 +2,15 @@ import Image from "next/image"; // for Next.js
 import Button from "../ui/Button";
 import RatingStars from "../ui/RatingStars";
 import Link from "next/link";
+import { Product } from "@/types/productTypes";
 
 interface ProductCardSmallProps {
-  productData: any;
+  productData: Product;
   onBuyClick?: () => void;
 }
 
 const ProductCardSmall: React.FC<ProductCardSmallProps> = ({
   productData,
-  onBuyClick,
 }) => {
   return (
     <>
@@ -40,7 +40,7 @@ const ProductCardSmall: React.FC<ProductCardSmallProps> = ({
                 <RatingStars rating={productData?.rating} size={15} />
               </div>
               <div className="text-sm text-red-600 font-medium space-x-1  capitalize">
-                {productData?.tags.map((genre: any, i: any) => (
+                {productData?.tags.map((genre: string, i: number) => (
                   <span key={i}>
                     {genre}
                     {i < productData?.tags.length - 1 && (

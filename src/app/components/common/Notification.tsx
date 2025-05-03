@@ -1,6 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
-const notifications = [
+type NotificationAction = {
+  label: string;
+  style: string;
+};
+
+type NotificationData = {
+  id: number;
+  image: string;
+  title: string;
+  message: string;
+  actions: NotificationAction[];
+};
+
+const notifications: NotificationData[] = [
   {
     id: 1,
     image: "https://picsum.photos/200",
@@ -20,7 +33,19 @@ const notifications = [
   },
 ];
 
-const NotificationItem = ({ image, title, message, actions = [] }: any) => (
+interface NotificationItemProps {
+  image: string;
+  title: string;
+  message: string;
+  actions?: NotificationAction[];
+}
+
+const NotificationItem: React.FC<NotificationItemProps> = ({
+  image,
+  title,
+  message,
+  actions = [],
+}) => (
   <div className="relative bg-black/40 rounded-3xl">
     <div className="relative bg-secondary-bg rounded-3xl px-3 py-3 flex flex-row">
       <div className="relative mr-2">
@@ -37,7 +62,7 @@ const NotificationItem = ({ image, title, message, actions = [] }: any) => (
         <p className="text-xs text-white/70">{message}</p>
         {actions.length > 0 && (
           <div className="mt-3 flex flex-row gap-2">
-            {actions.map((action: any, idx: number) => (
+            {actions.map((action, idx) => (
               <button
                 key={idx}
                 className={`px-3 py-1.5 rounded-3xl text-xs font-medium ${action.style}`}
@@ -52,7 +77,15 @@ const NotificationItem = ({ image, title, message, actions = [] }: any) => (
   </div>
 );
 
-const Notification = ({ showNotification, setShowNotification }: any) => {
+interface NotificationProps {
+  showNotification: boolean;
+  setShowNotification: (value: boolean) => void;
+}
+
+const Notification: React.FC<NotificationProps> = ({
+  showNotification,
+  setShowNotification,
+}) => {
   const handleClose = () => {
     setShowNotification(false);
   };

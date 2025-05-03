@@ -1,14 +1,14 @@
 import React from "react";
 import Button from "../ui/Button";
-import IMAGES from "@/utils/imagePaths";
 import RatingStars from "../ui/RatingStars";
 import AvailableOn from "./AvailableOn";
 import Link from "next/link";
+import { Product } from "@/types/productTypes";
 
 type Alignment = "left" | "center" | "right";
 
 interface ProductCardLargeProps {
-  productData: any;
+  productData: Product;
   alignment?: Alignment;
 }
 

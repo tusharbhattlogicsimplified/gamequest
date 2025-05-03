@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Category } from "@/types/productTypes";
 import Button from "@/app/components/ui/Button";
 

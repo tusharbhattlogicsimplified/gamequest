@@ -17,7 +17,6 @@ interface PageSectionProps {
 
 function Landing() {
   const [products, setProducts] = useState<Product[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     loadProducts();
@@ -33,7 +32,6 @@ function Landing() {
     } catch (err) {
       console.error("Failed to fetch products:", err);
     } finally {
-      setIsLoading(false);
     }
   };
 

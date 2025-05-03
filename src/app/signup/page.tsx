@@ -21,7 +21,6 @@ export default function SignUpPage() {
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -54,7 +53,7 @@ export default function SignUpPage() {
       return;
     }
 
-    setIsSubmitting(true);
+    // setIsSubmitting(true);
 
     try {
       dispatch(register(form));

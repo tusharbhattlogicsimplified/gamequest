@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Header from "../components/layout/Header";
 import {
   fetchAllCategories,
   fetchProducts,
@@ -10,8 +9,6 @@ import { Category, Product } from "@/types/productTypes";
 import ProductCardSmall from "../components/common/ProductCardSmall";
 import FilterSidebar from "./components/FilterSiderbar";
 import SortDropdown from "../components/ui/SortDropDown";
-import ProductCardLarge from "../components/common/ProductCardLarge";
-import Footer from "../components/layout/Footer";
 import LargeProductBannersSection from "../components/common/LargeProductBannersSection";
 
 function ProductsPage() {
