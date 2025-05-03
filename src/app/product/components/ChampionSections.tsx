@@ -1,7 +1,6 @@
 import Button from "@/app/components/ui/Button";
 import CustomImage from "@/app/components/ui/CustomImage";
 import { Product } from "@/app/types/productTypes";
-import Image from "next/image";
 import React from "react";
 
 interface ChampionSectionsProps {

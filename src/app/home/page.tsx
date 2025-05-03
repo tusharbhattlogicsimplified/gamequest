@@ -8,7 +8,6 @@ import { Product } from "@/app/types/productTypes";
 import SmallProductCardSection from "../components/common/SmallProductCarousel";
 import Link from "next/link";
 import IMAGES from "@/app/utils/imagePaths";
-import Image from "next/image";
 import CustomImage from "../components/ui/CustomImage";
 
 interface PageSectionProps {

@@ -9,7 +9,6 @@ import AvailableOn from "@/app/components/common/AvailableOn";
 import ChampionSections from "./ChampionSections";
 import Arenas from "./Arenas";
 import ReviewsCarousel from "./ReviewsCarousel";
-import Image from "next/image";
 import IMAGES from "@/app/utils/imagePaths";
 import SecondaryProductBanner from "./SecondaryProductBanner";
 import SmallProductCardSection from "@/app/components/common/SmallProductCarousel";
