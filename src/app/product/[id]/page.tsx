@@ -1,23 +1,28 @@
-'use client';
-
-import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import ProductDetails from "../components/ProductDetails";
 import { fetchProductById } from "@/services/productService";
 import { useAppSelector } from "@/app/store/hooks";
 import { Product } from "@/types/productTypes";
 
-export default function ProductDetailsPage({ params }: { params: { id: string } }) {
+// Type for the route segment props
+interface ProductDetailsPageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default function ProductDetailsPage({ params }: ProductDetailsPageProps) {
   const router = useRouter();
   const user = useAppSelector((state) => state.auth.user);
 
-  const [product, setProduct] = useState<Product| null>(null);
+  const [product, setProduct] = useState<Product | null>(null);
 
   const productId = params.id;
 
   useEffect(() => {
     if (!user) {
-      router.push('/login');
+      router.push("/login");
     }
 
     const fetchProduct = async () => {
