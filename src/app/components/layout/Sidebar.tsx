@@ -37,7 +37,7 @@ interface SidebarProps  {
   onClose?: () => void;
 };
 
-export default function Sidebar({ isOpen = true, onClose }: SidebarProps) {
+export default function Sidebar({ }: SidebarProps) {
   const dispatch = useAppDispatch();
   const router = useRouter();
 

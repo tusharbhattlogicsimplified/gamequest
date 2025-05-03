@@ -3,11 +3,9 @@ import IMAGES from "@/utils/imagePaths";
 import Image from "next/image";
 import Link from "next/link";
 import Notification from "../common/Notification";
-import Sidebar from "./Sidebar";
 
 function Header() {
   const [showNotification, setShowNotification] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const notifRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -35,7 +33,7 @@ function Header() {
           </nav>
 
           <div className="flex sm:hidden">
-            <button onClick={() => setSidebarOpen(true)}>
+            <button onClick={() => ({})}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

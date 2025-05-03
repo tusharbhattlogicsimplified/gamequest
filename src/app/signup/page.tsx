@@ -64,7 +64,7 @@ export default function SignUpPage() {
     } catch (error) {
       console.error(error);
     } finally {
-      setIsSubmitting(false);
+      // setIsSubmitting(false);
     }
   };
 
