@@ -1,5 +1,4 @@
 import IMAGES from '@/app/utils/imagePaths';
-import Image from 'next/image';
 import React from 'react';
 import CustomImage from '../ui/CustomImage';
 
