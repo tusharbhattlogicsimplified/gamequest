@@ -16,6 +16,7 @@ import SmallProductCardSection from "@/app/components/common/SmallProductCarouse
 import { fetchProductsByCategory } from "@/app/services/productService";
 import Link from "next/link";
 import { useLoader } from "@/app/contexts/LoaderContext";
+import CustomImage from "@/app/components/ui/CustomImage";
 
 interface ProductDetailsProps {
   product: Product;
@@ -91,7 +92,7 @@ function ProductDetails({ product }: ProductDetailsProps): JSX.Element {
         <Link href={"/products"}>
           <div className="uppercase flex gap-x-2">
             <p className="text-sm md:text-lg">View All</p>
-            <Image
+            <CustomImage
               src={IMAGES.rightArrowIcon.src}
               width={30}
               height={30}

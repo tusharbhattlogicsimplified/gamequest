@@ -1,4 +1,5 @@
 import Button from "@/app/components/ui/Button";
+import CustomImage from "@/app/components/ui/CustomImage";
 import { Product } from "@/app/types/productTypes";
 import Image from "next/image";
 import React from "react";
@@ -34,7 +35,7 @@ function ChampionSection({
       </div>
 
       <div className="w-1/2 flex justify-center ">
-        <Image
+        <CustomImage
           src={product.thumbnail}
           alt={product.title}
           width={300}

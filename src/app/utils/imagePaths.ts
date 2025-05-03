@@ -17,6 +17,7 @@ const IMAGES = {
     instagramIcon : {src: '/SocialMediaIcons/instagram.svg' , alt : 'instagram'},
     filledStar : {src: '/Icons/filledStar.svg' , alt : 'filledStar'},
     emptyStar : {src: '/Icons/emptyStar.svg' , alt : 'emptyStar'},
+    fallBackImage : {src: '/Images/GQ.png' , alt : 'GameQuest'},
   };
   
 export default IMAGES;

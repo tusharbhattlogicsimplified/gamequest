@@ -3,6 +3,7 @@ import Button from "../ui/Button";
 import RatingStars from "../ui/RatingStars";
 import Link from "next/link";
 import { Product } from "@/app/types/productTypes";
+import CustomImage from "../ui/CustomImage";
 
 interface ProductCardSmallProps {
   productData: Product;
@@ -21,7 +22,7 @@ const ProductCardSmall: React.FC<ProductCardSmallProps> = ({
               Discount {productData?.discountPercentage} %
             </span>
             <div className="flex items-center justify-center text-xs ">
-              <Image
+              <CustomImage
                 src={productData?.thumbnail}
                 alt={productData?.title}
                 width={150}

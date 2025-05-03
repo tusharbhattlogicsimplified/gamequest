@@ -1,5 +1,6 @@
 import IMAGES from "@/app/utils/imagePaths";
 import Image from "next/image";
+import CustomImage from "./CustomImage";
 
 interface RatingStarsProps {
   rating: number;
@@ -22,7 +23,7 @@ export default function RatingStars({
   return (
     <div className={`flex gap-1 ${className}`}>
       {Array.from({ length: totalStars }).map((_, i) => (
-        <Image
+        <CustomImage
           key={i}
           src={i < roundedRating ? filledStarSrc : outlinedStarSrc}
           alt={i < roundedRating ? "Filled star" : "Outlined star"}

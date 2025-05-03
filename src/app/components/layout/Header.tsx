@@ -3,6 +3,7 @@ import IMAGES from "@/app/utils/imagePaths";
 import Image from "next/image";
 import Link from "next/link";
 import Notification from "../common/Notification";
+import CustomImage from "../ui/CustomImage";
 
 function Header() {
   const [showNotification, setShowNotification] = useState(false);
@@ -53,7 +54,7 @@ function Header() {
 
           <div className="flex justify-between items-center gap-6 relative">
             <div className="hidden sm:flex w-96 px-5 py-2 rounded-full bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 gap-x-4">
-              <Image
+              <CustomImage
                 src={IMAGES.searchIcon.src}
                 width={20}
                 height={20}
@@ -68,7 +69,7 @@ function Header() {
 
             <div className="flex sm:hidden">
               <button>
-                <Image
+                <CustomImage
                   src={IMAGES.searchIcon.src}
                   width={40}
                   height={40}
@@ -81,7 +82,7 @@ function Header() {
 
             <div className="relative" ref={notifRef}>
               <button onClick={() => setShowNotification(!showNotification)}>
-                <Image
+                <CustomImage
                   src={IMAGES.notificationIcon.src}
                   width={40}
                   height={40}
@@ -100,7 +101,7 @@ function Header() {
 
             <span className="h-5 w-px bg-gray-600" />
             <div>
-              <Image
+              <CustomImage
                 src={IMAGES.shopIcon.src}
                 width={40}
                 height={40}

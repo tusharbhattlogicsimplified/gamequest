@@ -1,6 +1,7 @@
 import IMAGES from '@/app/utils/imagePaths';
 import Image from 'next/image';
 import React from 'react';
+import CustomImage from '../ui/CustomImage';
 
 const Footer: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ const Footer: React.FC = () => {
 
       <div className="flex justify-center gap-4">
         <a href="#" className="p-2 rounded border border-gray-600 hover:border-white transition">
-          <Image
+          <CustomImage
             src={IMAGES.twitterIcon.src}
             alt={IMAGES.twitterIcon.alt}
             width={20}
@@ -27,7 +28,7 @@ const Footer: React.FC = () => {
           />
         </a>
         <a href="#" className="p-2 rounded border border-gray-600 hover:border-white transition">
-        <Image
+        <CustomImage
             src={IMAGES.facebookIcon.src}
             alt={IMAGES.facebookIcon.alt}
             width={20}
@@ -35,7 +36,7 @@ const Footer: React.FC = () => {
           />
         </a>
         <a href="#" className="p-2 rounded border border-gray-600 hover:border-white transition">
-        <Image
+        <CustomImage
             src={IMAGES.instagramIcon.src}
             alt={IMAGES.instagramIcon.alt}
             width={20}

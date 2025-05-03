@@ -5,31 +5,32 @@ import IMAGES from "@/app/utils/imagePaths";
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/app/store/hooks";
 import { logout } from "@/app/store/authSlice";
+import CustomImage from "../ui/CustomImage";
 
 const navItems = [
-  { href: "/", icon: "/sidebarIcons/home.svg", label: "Home" },
+  { href: "/", icon: "/SidebarIcons/home.svg", label: "Home" },
   {
     href: "/inbox",
-    icon: "/sidebarIcons/messages.svg",
+    icon: "/SidebarIcons/messages.svg",
     label: "Inbox",
     notification: true,
   },
-  { href: "/store", icon: "/sidebarIcons/gameStore.svg", label: "Store" },
-  { href: "/billing", icon: "/sidebarIcons/payment.svg", label: "Billing" },
+  { href: "/store", icon: "/SidebarIcons/gameStore.svg", label: "Store" },
+  { href: "/billing", icon: "/SidebarIcons/payment.svg", label: "Billing" },
   {
     href: "/dashboard",
-    icon: "/sidebarIcons/appstore.svg",
+    icon: "/SidebarIcons/appstore.svg",
     label: "Dashboard",
   },
   {
     href: "/leaderboard",
-    icon: "/sidebarIcons/leaderboard.svg",
+    icon: "/SidebarIcons/leaderboard.svg",
     label: "Leaderboard",
   },
 ];
 const bottomItems = [
-  { href: "/settings", icon: "/sidebarIcons/settings.svg", label: "Settings" },
-  { href: "/logout", icon: "/sidebarIcons/logout.svg", label: "Logout" },
+  { href: "/settings", icon: "/SidebarIcons/settings.svg", label: "Settings" },
+  { href: "/logout", icon: "/SidebarIcons/logout.svg", label: "Logout" },
 ];
 
 interface SidebarProps  {
@@ -46,7 +47,7 @@ export default function Sidebar({ }: SidebarProps) {
       <div className="flex group hover:w-52 transition-all duration-300 w-24 bg-amber-900 justify-center">
         <div className="flex flex-col justify-between w-24 group-hover:w-52 overflow-hidden items-center group-hover:items-start transition-all duration-300">
           <div className="flex flex-col items-center px-5 py-4">
-            <Image
+            <CustomImage
               src={IMAGES.gameQuestLogo.src}
               alt={IMAGES.gameQuestLogo.alt}
               width={50}
@@ -62,7 +63,7 @@ export default function Sidebar({ }: SidebarProps) {
                 className="relative flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white transition"
                 title={label}
               >
-                <Image src={icon} alt={label} width={20} height={20} />
+                <CustomImage src={icon} alt={label} width={20} height={20} />
                 <span className="hidden group-hover:inline text-sm">
                   {label || "xyzabc"}
                 </span>
@@ -94,7 +95,7 @@ export default function Sidebar({ }: SidebarProps) {
                   className="flex  gap-3 text-gray-400 hover:text-white transition"
                   title={label}
                 >
-                  <Image src={icon} alt={label} width={20} height={20} />
+                  <CustomImage src={icon} alt={label} width={20} height={20} />
                   <span className="hidden group-hover:inline text-sm">
                     {label || "xyzabc"}
                   </span>

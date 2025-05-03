@@ -7,6 +7,7 @@ import AvailableOn from "@/app/components/common/AvailableOn";
 import Button from "@/app/components/ui/Button";
 import RatingStars from "@/app/components/ui/RatingStars";
 import { Product } from "@/app/types/productTypes";
+import CustomImage from "@/app/components/ui/CustomImage";
 
 
 export default function ProductCarousel({ products }: { products: Product[] }) {
@@ -107,12 +108,11 @@ function CarouselItem({ product }: { product: Product }) {
       </div>
       <div className="hidden md:block">
         
-        {product?.thumbnail && (<Image
+        {product?.thumbnail && (<CustomImage
           src={product?.thumbnail}
           alt={product?.title}
           width={500}
           height={500}
-          objectFit="fit" 
         />)}
       </div>
     </div>

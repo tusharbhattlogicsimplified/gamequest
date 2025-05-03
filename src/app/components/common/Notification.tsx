@@ -1,4 +1,6 @@
+import Image from "next/image";
 import React from "react";
+import CustomImage from "../ui/CustomImage";
 
 type NotificationAction = {
   label: string;
@@ -49,11 +51,25 @@ const NotificationItem: React.FC<NotificationItemProps> = ({
   <div className="relative bg-black/40 rounded-3xl">
     <div className="relative bg-secondary-bg rounded-3xl px-3 py-3 flex flex-row">
       <div className="relative mr-2">
-        <div className="absolute inset-0 w-16 rounded-3xl mr-3 aspect-square blur-[0.4em]">
-          <img src={image} className="object-cover rounded-3xl" />
+        <div className="absolute inset-0 w-16 h-16 rounded-3xl mr-3 blur-[0.4em] overflow-hidden">
+          <CustomImage
+            src={image}
+            alt="notification-blur"
+            width={80}
+            height={80}
+            fill
+            className="object-cover rounded-3xl"
+          />
         </div>
-        <div className="relative w-16 rounded-3xl mr-3 aspect-square">
-          <img src={image} className="object-cover rounded-3xl" />
+        <div className="relative w-16 h-16 rounded-3xl mr-3 overflow-hidden">
+          <CustomImage
+            src={image}
+            alt="notification"
+            width={80}
+            height={80}
+            fill
+            className="object-cover rounded-3xl"
+          />
         </div>
       </div>
 

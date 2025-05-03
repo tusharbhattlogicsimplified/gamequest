@@ -9,6 +9,7 @@ import SmallProductCardSection from "../components/common/SmallProductCarousel";
 import Link from "next/link";
 import IMAGES from "@/app/utils/imagePaths";
 import Image from "next/image";
+import CustomImage from "../components/ui/CustomImage";
 
 interface PageSectionProps {
   children: ReactNode;
@@ -67,7 +68,7 @@ function Landing() {
                   >
                     Go to Product Store
                   </Link>
-                  <Image
+                  <CustomImage
                     src={IMAGES.rightArrowIcon.src}
                     width={25}
                     height={25}

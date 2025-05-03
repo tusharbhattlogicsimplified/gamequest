@@ -1,6 +1,7 @@
 import IMAGES from "@/app/utils/imagePaths";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
+import CustomImage from "./CustomImage";
 
 const SORT_OPTIONS = [
   "Release date : Old to New",
@@ -50,7 +51,7 @@ export default function SortDropdown() {
         className="px-4 py-2 rounded-full border text-white border-white flex items-center gap-2 text-[15px]"
       >
         Sort by
-        <Image
+        <CustomImage
           src={IMAGES.dropdownArrowIcon.src}
           width={10}
           height={10}
