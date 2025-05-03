@@ -10,68 +10,11 @@ import ProductCardLarge from "../components/common/ProductCardLarge";
 import { fetchProducts } from "@/services/productService";
 import { Product } from "@/types/productTypes";
 import LargeGameSections from "../components/common/LargeGameSections";
-import SmallProductCardSection from "../components/common/SmallProductCardSection";
+import SmallProductCardSection from "../components/common/SmallProductCarousel";
 import Footer from "../components/layout/Footer";
 import Link from "next/link";
 import IMAGES from "@/utils/imagePaths";
 import Image from "next/image";
-
-export const games = [
-  {
-    title: "World of Warcraft",
-    price: 48,
-    players: "10k+ Players",
-    genres: ["Action", "Adventure"],
-    releaseDate: "10th August 2022",
-    onlineUsers: 1200,
-    rating: 4,
-  },
-  {
-    title: "The Witcher",
-    price: 48,
-    players: "10k+ Players",
-    genres: ["Action", "Adventure"],
-    releaseDate: "10th August 2022",
-    onlineUsers: 1200,
-    rating: 3,
-  },
-  {
-    title: "Horizon",
-    price: 48,
-    players: "10k+ Players",
-    genres: ["Action", "Adventure"],
-    releaseDate: "10th August 2022",
-    onlineUsers: 1200,
-    rating: 4,
-  },
-  {
-    title: "Valorant",
-    price: 48,
-    players: "10k+ Players",
-    genres: ["Action", "Adventure"],
-    releaseDate: "10th August 2022",
-    onlineUsers: 1200,
-    rating: 3,
-  },
-  {
-    title: "Cyberpunk 2077",
-    price: 48,
-    players: "10k+ Players",
-    genres: ["RPG", "Open World"],
-    releaseDate: "10th August 2022",
-    onlineUsers: 1200,
-    rating: 4,
-  },
-  {
-    title: "Cyberpunk 20771",
-    price: 48,
-    players: "10k+ Players",
-    genres: ["RPG", "Open World"],
-    releaseDate: "10th August 2022",
-    onlineUsers: 1200,
-    rating: 4,
-  },
-];
 
 interface PageSectionProps {
   children: ReactNode;
@@ -108,32 +51,34 @@ function Landing() {
   }) => {
     return (
       <section className={`relative ${className}`}>
-        <div className="pl-20">{children}</div>
+        <div className="md:pl-22">{children}</div>
       </section>
     );
   };
 
   return (
     <>
-      <div className="relative min-h-screen flex overflow-x-hidden mb-12">
+      <div className="relative flex mb-12">
         {/* Content Area first (sections span full width) */}
         <div className="flex-1 flex flex-col relative z-0">
-          <main className="flex-1">
-            <PageSection className="px-16 bg-black/50">
-              <Header />
+          <main className="">
+            {/* <PageSection className="px-16 bg-black/50 sticky">
+            </PageSection> */}
+
+            <PageSection className="px-8 md:px-16 bg-black/50">
+              <ProductCarousel products={products} />
             </PageSection>
 
-            <PageSection className="px-16 bg-black/50">
-              <ProductCarousel />
-            </PageSection>
-
-            <PageSection className="  px-8 py-12">
-              <div className="w-full flex justify-between">
-                <h2 className="font-standout text-4xl text-[#DAB785]">
+            <PageSection className="py-12">
+              <div className="w-full flex justify-between flex-col md:flex-row px-5">
+                <h2 className="font-standout text-2xl md:text-4xl text-[#DAB785]">
                   MOST TRENDING
                 </h2>
-                <div className="flex justify-center items-center gap-x-2">
-                  <Link href={"/products"} className="uppercase text-lg25">
+                <div className="flex justify-end md:justify-center items-center md:gap-x-2">
+                  <Link
+                    href={"/products"}
+                    className="uppercase text-xs md:text-lg"
+                  >
                     Go to Product Store
                   </Link>
                   <Image
@@ -144,7 +89,11 @@ function Landing() {
                   />
                 </div>
               </div>
-              <SmallProductCardSection products={products} />
+              <div className="max-w-screen">
+                <div className="pl-5">
+                  <SmallProductCardSection products={products} />
+                </div>
+              </div>
             </PageSection>
 
             <div className="flex flex-col gap-y-10">
@@ -165,12 +114,9 @@ function Landing() {
         </div>
 
         {/* Sidebar sits on top (absolute overlay) */}
-        <div className="absolute top-0 left-0 h-full w-24 border-r-1 border-white/30 z-20 flex flex-col bg-none">
+        <div className="absolute top-0 left-0 h-full w-24 border-r-1 border-white/30 z-20  flex-col bg-none hidden md:flex">
           <Sidebar />
         </div>
-      </div>
-      <div>
-        <Footer />
       </div>
     </>
   );

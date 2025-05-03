@@ -13,6 +13,7 @@
   --font-title: var(--font-wallpoet);   /* ✅ Optional: for headings */
   --font-standout: var(--font-press_Start_2P);   /* ✅ Optional: for headings */
   --font-aoboshiOne: var(--font-aoboshi_One);   /* ✅ Optional: for headings */
+  --font-algerian: var(--font-algerian);   /* ✅ Optional: for headings */
 
 }
 
@@ -24,10 +25,19 @@
 }
 
 body {
+  /* overflow-x: hidden; */
+
   background: var(--background);
   color: var(--foreground);
   @apply font-sans; /* Use Tailwind font class instead of hardcoded font-family */
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
+}
+
+*
+{
+  box-sizing: border-box;
+  /* margin: 0;
+  padding: 0; */
 }
 
 /* Hide scrollbar for WebKit, Firefox, and Edge */
@@ -40,6 +50,15 @@ body {
   display: none; /* Safari and Chrome */
 }
 
+.clip-custom-corner {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 20px) 0,
+    100% 20px,
+    100% 100%,
+    0 100%
+  );
+}
 
 /* * {
   @apply font-sans;

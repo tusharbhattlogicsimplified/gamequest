@@ -1,74 +1,126 @@
+import React, { useState, useRef, useEffect } from "react";
 import IMAGES from "@/utils/imagePaths";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import Notification from "../common/Notification";
+import Sidebar from "./Sidebar";
 
 function Header() {
-  return (
-    <header className=" text-white w-full sticky">
-      <div className="flex justify-between  py-8 items-center">
-        {/* Left Navigation */}
-        <nav className="flex items-center gap-6 text-white/80">
-          <Link href="/" className="hover:text-gray-400">
-            Home
-          </Link>
-          <span className="h-5 w-px bg-gray-600" />
-          <Link href="/store" className="hover:text-gray-400">
-            Game Store
-          </Link>
-          <span className="h-5 w-px bg-gray-600" />
-          <Link href="/leaderboard" className="hover:text-gray-400">
-            Leaderboard
-          </Link>
-        </nav>
+  const [showNotification, setShowNotification] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const notifRef = useRef<HTMLDivElement | null>(null);
 
-        {/* Search */}
-        <div className="flex justify-between items-center gap-6">
-          <div className="w-96 px-5 py-2 rounded-full bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 flex gap-x-4">
-            <Image
-              src={IMAGES.searchIcon.src}
-              width={20}
-              height={20}
-              alt={IMAGES.searchIcon.alt}
-            />
-            <input
-              type="text"
-              placeholder="What are you looking for?"
-              className="border-0 outline-0 w-full"
-            />
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (notifRef.current && !notifRef.current?.contains(e.target as Node)) {
+        setShowNotification(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  return (
+    <>
+      <header className="text-white w-full sticky top-0 z-50 bg-[#15140f] px-4 md:px-10">
+        <div className="flex justify-between py-3 md:py-8 items-center">
+          {/* Left Nav */}
+          <nav className="hidden sm:flex items-center gap-6 text-white/80">
+            <Link href="/" className="hover:text-gray-400">
+              Home
+            </Link>
+            <span className="h-5 w-px bg-gray-600" />
+            <Link href="/products" className="hover:text-gray-400">
+              Product Store
+            </Link>
+          </nav>
+
+          {/* Hamburger Menu (Mobile only) */}
+          <div className="flex sm:hidden">
+            <button onClick={() => setSidebarOpen(true)}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-8 h-8 text-white"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 5.25h16.5m-16.5 6.75h16.5m-16.5 6.75h16.5"
+                />
+              </svg>
+            </button>
           </div>
-          <span className="h-5 w-px bg-gray-600" />
-          <div>
-            <Image
-              src={IMAGES.notificationIcon.src}
-              width={40}
-              height={40}
-              alt={IMAGES.notificationIcon.alt}
-            />
-          </div>
-          <span className="h-5 w-px bg-gray-600" />
-          <div>
-            {" "}
-            <Image
-              src={IMAGES.shopIcon.src}
-              width={40}
-              height={40}
-              alt={IMAGES.shopIcon.alt}
-            />
-          </div>
-          <span className="h-5 w-px bg-gray-600" />
-          <div>
-            {" "}
-            <Image
-              src={IMAGES.emptyCircleIcon.src}
-              width={40}
-              height={40}
-              alt={IMAGES.emptyCircleIcon.alt}
-            />
+
+          {/* Right Section */}
+          <div className="flex justify-between items-center gap-6 relative">
+            {/* Search */}
+            <div className="hidden sm:flex w-96 px-5 py-2 rounded-full bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 gap-x-4">
+              <Image
+                src={IMAGES.searchIcon.src}
+                width={20}
+                height={20}
+                alt={IMAGES.searchIcon.alt}
+              />
+              <input
+                type="text"
+                placeholder="What are you looking for?"
+                className="border-0 outline-0 w-full bg-transparent"
+              />
+            </div>
+
+            {/* Search Icon (Mobile Only) */}
+            <div className="flex sm:hidden">
+              <button>
+                <Image
+                  src={IMAGES.searchIcon.src}
+                  width={40}
+                  height={40}
+                  alt={IMAGES.searchIcon.alt}
+                />
+              </button>
+            </div>
+
+            <span className="h-5 w-px bg-gray-600" />
+
+            {/* Notification */}
+            <div className="relative" ref={notifRef}>
+              <button onClick={() => setShowNotification(!showNotification)}>
+                <Image
+                  src={IMAGES.notificationIcon.src}
+                  width={40}
+                  height={40}
+                  alt={IMAGES.notificationIcon.alt}
+                />
+              </button>
+              {showNotification && (
+                <div className="absolute right-0 top-12 z-50">
+                  <Notification
+                    showNotification={showNotification}
+                    setShowNotification={setShowNotification}
+                  />
+                </div>
+              )}
+            </div>
+
+            <span className="h-5 w-px bg-gray-600" />
+
+            {/* Shop Icon */}
+            <div>
+              <Image
+                src={IMAGES.shopIcon.src}
+                width={40}
+                height={40}
+                alt={IMAGES.shopIcon.alt}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
 

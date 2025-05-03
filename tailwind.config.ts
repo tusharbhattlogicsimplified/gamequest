@@ -6,6 +6,7 @@ module.exports = {
         fontFamily: {
           sans: ['var(--font-poppins)', 'sans-serif'],
           title: ['var(--font-wallpoet)'], // ✅ Add this line
+          algerian: ["var(--font-algerian)", "sans-serif"],
         },
       },
     },

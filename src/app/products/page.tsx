@@ -12,13 +12,16 @@ import FilterSidebar from "./components/FilterSiderbar";
 import SortDropdown from "../components/ui/SortDropDown";
 import ProductCardLarge from "../components/common/ProductCardLarge";
 import Footer from "../components/layout/Footer";
+import LargeProductBannersSection from "../components/common/LargeProductBannersSection";
 
 function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [bannerProducts, setBannerProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([
     "All",
   ]);
+  const [isMobileFilterVisible, setIsMobileFilterVisible] = useState(false);
 
   useEffect(() => {
     const getCategories = async () => {
@@ -28,6 +31,10 @@ function ProductsPage() {
     getCategories();
     handleApplyFilters();
   }, []);
+
+  useEffect(() => {
+    setBannerProducts(products.splice(0, 3));
+  }, [products]);
 
   const handleApplyFilters = async () => {
     if (selectedCategories.includes("All")) {
@@ -45,15 +52,39 @@ function ProductsPage() {
 
   return (
     <>
-      <div className="min-h-screen bg-[#12121200] text-white px-12">
-        <Header />
+      <div className="min-h-screen bg-[#12121200] text-white px-2 md:px-12">
         <div className="flex gap-6 py-6">
-          <FilterSidebar
-            categories={categories}
-            selectedCategories={selectedCategories}
-            setSelectedCategories={setSelectedCategories}
-            onApply={handleApplyFilters}
-          />
+          {/* Desktop Sidebar */}
+          <div className="hidden sm:block">
+            <FilterSidebar
+              categories={categories}
+              selectedCategories={selectedCategories}
+              setSelectedCategories={setSelectedCategories}
+              onApply={handleApplyFilters}
+            />
+          </div>
+
+          {/* Mobile Sidebar */}
+          {isMobileFilterVisible && (
+            <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex sm:hidden">
+              <div className="w-4/5 max-w-xs bg-[#1c1c1c] p-4 h-full overflow-y-auto">
+                <FilterSidebar
+                  categories={categories}
+                  selectedCategories={selectedCategories}
+                  setSelectedCategories={setSelectedCategories}
+                  onApply={() => {
+                    handleApplyFilters();
+                    setIsMobileFilterVisible(false);
+                  }}
+                />
+              </div>
+              <div
+                className="flex-1"
+                onClick={() => setIsMobileFilterVisible(false)}
+              ></div>
+            </div>
+          )}
+
           <div className="w-full px-3 text-xl">
             <div className="mb-7 flex w-full justify-between">
               <div>
@@ -71,15 +102,18 @@ function ProductsPage() {
             </div>
           </div>
         </div>
-
-        <div>
-          <ProductCardLarge productData={products[0]} alignment="right" />
-          <ProductCardLarge productData={products[0]} alignment="center" />
-          <ProductCardLarge productData={products[0]} alignment="left" />
-        </div>
       </div>
-      <div>
-        <Footer />
+
+      <LargeProductBannersSection bannerProducts={bannerProducts} />
+
+      {/* Sticky Filter Button for Mobile */}
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 sm:hidden">
+        <button
+          onClick={() => setIsMobileFilterVisible(true)}
+          className="bg-white text-black px-4 py-2 rounded-full shadow-lg"
+        >
+          Filter
+        </button>
       </div>
     </>
   );
