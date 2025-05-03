@@ -1,10 +1,7 @@
-// services/productService.ts
 import apiClient from '@/lib/axios';
 import { Product, Category, ProductListResponse } from '@/types/productTypes';
 
 // Fetch all products
-// services/products.ts
-
 export const fetchProducts = async (limit?: number): Promise<ProductListResponse> => {
   const params = new URLSearchParams();
   if (limit !== undefined) {

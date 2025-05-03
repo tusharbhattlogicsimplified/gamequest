@@ -26,7 +26,6 @@ function LargeProductBannersSection({ bannerProducts }: Props) {
     );
   }
 
-  // Alignment options in repeating order
   const alignments: Array<"right" | "center" | "left"> = [
     "right",
     "center",

@@ -1,9 +1,9 @@
 import React from 'react';
-import ProductCardLarge from './ProductCardLarge'; // adjust path
+import ProductCardLarge from './ProductCardLarge'; 
 import { Product } from '@/types/productTypes';
 
 interface LargeGameSectionsProps {
-    products: Product[]; // Pass products explicitly
+    products: Product[]; 
 }
 
 const LargeGameSections: React.FC<LargeGameSectionsProps> = ({ products }) => {
@@ -12,7 +12,7 @@ const LargeGameSections: React.FC<LargeGameSectionsProps> = ({ products }) => {
             <div className='flex flex-col gap-y-10'>
                 {products.map((product, index) => {
                     const alignments: Array<'left' | 'center' | 'right'> = ['right', 'center', 'left'];
-                    const alignment = alignments[index % alignments.length]; // cycle through alignments
+                    const alignment = alignments[index % alignments.length]; 
 
                     return (
                         <ProductCardLarge

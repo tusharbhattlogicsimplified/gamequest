@@ -5,7 +5,6 @@ import React from 'react';
 const Footer: React.FC = () => {
   return (
     <footer className="bg-black/40 text-gray-300 py-6 text-sm">
-      {/* Top Links */}
       <div className="flex flex-wrap justify-center gap-6 border-b border-gray-700 pb-4 mb-4">
         <a href="#" className="hover:text-white transition">Privacy Notice</a>
         <a href="#" className="hover:text-white transition">Terms of Service</a>
@@ -14,12 +13,10 @@ const Footer: React.FC = () => {
         <a href="#" className="hover:text-white transition">Cookie Preferences</a>
       </div>
 
-      {/* Copyright */}
       <div className="text-center text-xs mb-4">
         Copyright © GameQuest, Inc. All rights reserved
       </div>
 
-      {/* Social Icons */}
       <div className="flex justify-center gap-4">
         <a href="#" className="p-2 rounded border border-gray-600 hover:border-white transition">
           <Image

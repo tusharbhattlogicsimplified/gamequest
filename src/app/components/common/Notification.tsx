@@ -60,7 +60,6 @@ const Notification = ({ showNotification, setShowNotification }: any) => {
   return (
     showNotification && (
       <div className="flex flex-col gap-y-4 bg-amber-950 md:static md:w-[500px] fixed top-0 left-0 w-full h-full z-50 overflow-y-auto px-6 py-6">
-        {/* Cross icon (visible only on sm devices) */}
         <span
           className="absolute top-4 right-4 text-white cursor-pointer block md:hidden"
           onClick={handleClose}

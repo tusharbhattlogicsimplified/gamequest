@@ -57,11 +57,9 @@ export default function SignUpPage() {
     setIsSubmitting(true);
 
     try {
-      // Here you would typically call your API
       dispatch(register(form));
       storeUserInLocalStorage(form);
       console.log("Form submitted", form);
-      // await fetch('/api/signup', {...})
       alert("Sign up successful!");
       router.push("/login");
     } catch (error) {

@@ -23,7 +23,6 @@ const ReviewsCarousel: React.FC<ReviewsCarouselProps> = ({ reviews }) => {
             key={index}
             className="w-[300px] min-w-[300px] bg-[#DEB887] text-black rounded-xl p-5 shadow-md flex-shrink-0"
           >
-            {/* Header with avatar and name */}
             <div className="flex items-center gap-4 mb-4">
               <div className="w-10 h-10 border-2 border-black rounded-full" />
               <div>
@@ -34,7 +33,6 @@ const ReviewsCarousel: React.FC<ReviewsCarouselProps> = ({ reviews }) => {
               </div>
             </div>
             <hr className="border-black/30 mb-4" />
-            {/* Comment */}
             <p className="text-sm">{review.comment}</p>
           </div>
         ))}

@@ -7,10 +7,8 @@ function SecondaryProductBanner({ product }: { product: Product }) {
   return (
     <div className="flex items-center justify-center bg-gradient-to-br w-full py-40 px-8">
       <div className="flex flex-col md:flex-row w-full md:pl-25">
-        {/* Left Rectangle */}
         <div className="border border-[#9e896e] rounded-tr-md w-full md:w-1/2 h-64 md:h-auto" />
 
-        {/* Right Content */}
         <div className="text-white w-full md:w-1/2 flex flex-col items-center justify-center md:px-20 mt-10 md:mt-0 gap-y-10 ">
           <div className="uppercase text-center font-aoboshiOne mb-6 text-[#DAB785]">
             <h3 className="text-3xl">{"start your"}</h3>

@@ -21,12 +21,12 @@ export default function SortDropdown() {
       setDropdownClasses("opacity-0 scale-95");
       setTimeout(() => {
         setDropdownClasses("opacity-100 scale-100");
-      }, 10); // give browser time to paint initial state
+      }, 10); 
     } else {
       setDropdownClasses("opacity-0 scale-95");
       setTimeout(() => {
         setVisible(false);
-      }, 150); // match transition duration
+      }, 150);
     }
   }, [open]);
 

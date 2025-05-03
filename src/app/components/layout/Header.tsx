@@ -24,7 +24,6 @@ function Header() {
     <>
       <header className="text-white w-full sticky top-0 z-50 bg-[#15140f] px-4 md:px-10">
         <div className="flex justify-between py-3 md:py-8 items-center">
-          {/* Left Nav */}
           <nav className="hidden sm:flex items-center gap-6 text-white/80">
             <Link href="/" className="hover:text-gray-400">
               Home
@@ -35,7 +34,6 @@ function Header() {
             </Link>
           </nav>
 
-          {/* Hamburger Menu (Mobile only) */}
           <div className="flex sm:hidden">
             <button onClick={() => setSidebarOpen(true)}>
               <svg
@@ -55,9 +53,7 @@ function Header() {
             </button>
           </div>
 
-          {/* Right Section */}
           <div className="flex justify-between items-center gap-6 relative">
-            {/* Search */}
             <div className="hidden sm:flex w-96 px-5 py-2 rounded-full bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 gap-x-4">
               <Image
                 src={IMAGES.searchIcon.src}
@@ -72,7 +68,6 @@ function Header() {
               />
             </div>
 
-            {/* Search Icon (Mobile Only) */}
             <div className="flex sm:hidden">
               <button>
                 <Image
@@ -86,7 +81,6 @@ function Header() {
 
             <span className="h-5 w-px bg-gray-600" />
 
-            {/* Notification */}
             <div className="relative" ref={notifRef}>
               <button onClick={() => setShowNotification(!showNotification)}>
                 <Image
@@ -107,8 +101,6 @@ function Header() {
             </div>
 
             <span className="h-5 w-px bg-gray-600" />
-
-            {/* Shop Icon */}
             <div>
               <Image
                 src={IMAGES.shopIcon.src}

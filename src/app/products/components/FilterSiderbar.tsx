@@ -112,7 +112,6 @@ export default function FilterSidebar({
   );
 }
 
-// Reusable subcomponents
 const Section = ({
   title,
   children,

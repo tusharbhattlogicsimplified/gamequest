@@ -1,4 +1,3 @@
-// components/LoaderWrapper.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -15,7 +14,7 @@ export const LoaderWrapper = ({ children }: { children: React.ReactNode }) => {
     if (!pathname) return;
 
     setIsRouteChanging(true);
-    const timeout = setTimeout(() => setIsRouteChanging(false), 500); // small delay to simulate route load
+    const timeout = setTimeout(() => setIsRouteChanging(false), 500); 
 
     return () => clearTimeout(timeout);
   }, [pathname]);

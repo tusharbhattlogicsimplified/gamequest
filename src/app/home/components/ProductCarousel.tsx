@@ -8,7 +8,6 @@ import Button from "@/app/components/ui/Button";
 import RatingStars from "@/app/components/ui/RatingStars";
 import { Product } from "@/types/productTypes";
 
-// Define type for Product
 
 export default function ProductCarousel({ products }: { products: Product[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -29,7 +28,6 @@ export default function ProductCarousel({ products }: { products: Product[] }) {
     setActiveIndex(index);
   };
 
-  // Auto-advance slides
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
@@ -39,7 +37,6 @@ export default function ProductCarousel({ products }: { products: Product[] }) {
 
   return (
     <div className="relative overflow-hidden h-[600px] w-full">
-      {/* Carousel Items */}
       <div className="relative h-full w-full">
         <AnimatePresence mode="wait" initial={false} custom={direction}>
           <motion.div
@@ -59,7 +56,6 @@ export default function ProductCarousel({ products }: { products: Product[] }) {
         </AnimatePresence>
       </div>
 
-      {/* Indicators */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
         {products.map((_, index) => (
           <button
@@ -79,9 +75,7 @@ export default function ProductCarousel({ products }: { products: Product[] }) {
 function CarouselItem({ product }: { product: Product }) {
   return (
     <div className="relative w-full h-full flex items-center text-white">
-      {/* Background Image */}
 
-      {/* Content */}
       <div className="relative z-10 w-full md:w-2/3 text-left space-y-6  ">
         <div className=" flex flex-col gap-y-4 max-w-[550px]">
           <div className="">
@@ -117,13 +111,14 @@ function CarouselItem({ product }: { product: Product }) {
         </div>
       </div>
       <div className="hidden md:block">
-        <Image
+        
+        {product?.thumbnail && (<Image
           src={product?.thumbnail}
           alt={product?.title}
-          width={500} // Set width as a base
-          height={500} // Set height for aspect ratio
-          objectFit="fit" // Cover the entire container, potentially cropping
-        />
+          width={500}
+          height={500}
+          objectFit="fit" 
+        />)}
       </div>
     </div>
   );

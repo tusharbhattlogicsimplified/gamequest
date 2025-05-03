@@ -26,7 +26,7 @@ const ProductCardSmall: React.FC<ProductCardSmallProps> = ({
                 alt={productData?.title}
                 width={150}
                 height={150}
-                className="rounded-full" // Add a class for styling if needed
+                className="rounded-full"
               />
             </div>
           </div>
@@ -36,17 +36,10 @@ const ProductCardSmall: React.FC<ProductCardSmallProps> = ({
               <h3 className="font-semibold text-xl text-[#281E1F]">
                 {productData?.title}
               </h3>
-              {/* Rating */}
-              {/* <div className="text-orange-400 text-md">
-            {"★".repeat(productData?.rating)}
-            {"☆".repeat(5 - productData?.rating)}
-          </div> */}
               <div>
                 <RatingStars rating={productData?.rating} size={15} />
               </div>
-              {/* Genres */}
               <div className="text-sm text-red-600 font-medium space-x-1  capitalize">
-                {/* <span className="">•</span> */}
                 {productData?.tags.map((genre: any, i: any) => (
                   <span key={i}>
                     {genre}

@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 interface CarouselProps<T> {
   items: T[];
   renderItem: (item: T, index: number) => React.ReactNode;
-  gap?: string; // optional gap control (e.g., "gap-4")
+  gap?: string; 
 }
 
 function Carousel<T>({ items, renderItem, gap = 'gap-4' }: CarouselProps<T>) {
@@ -39,14 +39,12 @@ function Carousel<T>({ items, renderItem, gap = 'gap-4' }: CarouselProps<T>) {
     const walk = (x - startX) * 1.5; // Scroll speed factor
     containerRef.current.scrollLeft = scrollLeft - walk;
 
-    // Prevent vertical scroll during horizontal drag
     e.preventDefault();
   };
 
   const onWheel = (e: React.WheelEvent) => {
     if (containerRef.current) {
       containerRef.current.scrollLeft += e.deltaY;
-      // Prevent vertical scroll if we are scrolling horizontally
       e.preventDefault();
     }
   };

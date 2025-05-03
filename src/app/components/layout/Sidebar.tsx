@@ -44,9 +44,7 @@ export default function Sidebar({ isOpen = true, onClose }: SidebarProps) {
   return (
     <aside className="border-r border-neutral-800  flex-col py-11 h-full flex">
       <div className="flex group hover:w-52 transition-all duration-300 w-24 bg-amber-900 justify-center">
-        {/* Sidebar */}
         <div className="flex flex-col justify-between w-24 group-hover:w-52 overflow-hidden items-center group-hover:items-start transition-all duration-300">
-          {/* Logo */}
           <div className="flex flex-col items-center px-5 py-4">
             <Image
               src={IMAGES.gameQuestLogo.src}
@@ -56,7 +54,6 @@ export default function Sidebar({ isOpen = true, onClose }: SidebarProps) {
             />
           </div>
 
-          {/* Nav Items */}
           <div className="pb-4 flex flex-col border-b border-neutral-800">
             {navItems.map(({ href, icon, label, notification }) => (
               <Link
@@ -76,7 +73,6 @@ export default function Sidebar({ isOpen = true, onClose }: SidebarProps) {
             ))}
           </div>
 
-          {/* Bottom Items */}
 
           <div className="flex flex-col  items-center group-hover:items-start transition-all duration-300 gap-4 px-4 py-8 w-full">
             {bottomItems.map(({ href, icon, label }) => {

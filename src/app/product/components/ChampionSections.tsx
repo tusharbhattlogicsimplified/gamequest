@@ -7,7 +7,6 @@ interface ChampionSectionsProps {
   product: Product;
 }
 
-// Individual Section Component
 function ChampionSection({
   product,
   reverse = false,
@@ -24,7 +23,6 @@ function ChampionSection({
         reverse ? "flex-row-reverse" : "flex-row"
       }  py-12`}
     >
-      {/* Text block */}
       <div className={`w-1/2 flex flex-col  ${reverse ? "items-center" : ""}`}>
       <div className="w-fit flex flex-col gap-y-5">
           <div className="font-aoboshiOne">
@@ -37,7 +35,6 @@ function ChampionSection({
         </div>
       </div>
 
-      {/* Image block */}
       <div className="w-1/2 flex justify-center ">
         <Image
           src={product.thumbnail}
@@ -51,9 +48,7 @@ function ChampionSection({
   );
 }
 
-// Parent Component
 function ChampionSections({ product }: ChampionSectionsProps) {
-  // Create 4 sections for demonstration
   const sections = Array.from({ length: 4 });
 
   return (

@@ -26,7 +26,7 @@ function ProductsPage() {
   useEffect(() => {
     const getCategories = async () => {
       const cats = await fetchAllCategories();
-      setCategories([{ name: "All", slug: "all" }, ...cats]); // Add "All" manually
+      setCategories([{ name: "All", slug: "all" }, ...cats]); 
     };
     getCategories();
     handleApplyFilters();
@@ -106,7 +106,6 @@ function ProductsPage() {
 
       <LargeProductBannersSection bannerProducts={bannerProducts} />
 
-      {/* Sticky Filter Button for Mobile */}
       <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 sm:hidden">
         <button
           onClick={() => setIsMobileFilterVisible(true)}

@@ -160,18 +160,6 @@ function ProductDetails({ product }: ProductDetailsProps): JSX.Element {
         <PageSection>
           <div className="h-5"></div>
         </PageSection>
-        {/* <div className="flex justify-between items-center py-5 px-5 md:px-20">
-          <h3 className="text-lg md:text-2xl">Reviews from other top buyers</h3>
-          <div className="uppercase flex md:gap-x-2">
-            <p className="text-sm md:text-lg">{"View All"}</p>
-            <Image
-              src={IMAGES.rightArrowIcon.src}
-              width={30}
-              height={30}
-              alt={IMAGES.rightArrowIcon.alt}
-            />
-          </div>
-        </div> */}
         <HeadingSection heading="Reviews from other top buyers" />
 
         <PageSection>

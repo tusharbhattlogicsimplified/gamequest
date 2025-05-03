@@ -4,7 +4,7 @@ import Image from "next/image";
 interface RatingStarsProps {
   rating: number;
   totalStars?: number;
-  size?: number; // pixel size for sta
+  size?: number; 
   className?: string;
 }
 

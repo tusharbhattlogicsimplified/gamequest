@@ -19,7 +19,6 @@
     border-right: 2px solid rgba(255 255 255 / 0.5);
     transform: skewX(45deg);
     transform-origin: right bottom;
-    /* background-color: red; */
   }
   
   .linedFrame::after {

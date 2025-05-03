@@ -1,4 +1,3 @@
-// src/components/InputField.tsx
 'use client';
 
 import { InputHTMLAttributes } from 'react';

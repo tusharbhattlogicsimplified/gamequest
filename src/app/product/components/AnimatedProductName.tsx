@@ -11,7 +11,6 @@ const AnimatedProductNameComponent: React.FC<AnimatedProductNameProps> = ({ name
   const [shouldAnimate, setShouldAnimate] = useState(false);
 
   useEffect(() => {
-    // Trigger only once on mount
     setShouldAnimate(true);
   }, []);
 
@@ -28,7 +27,6 @@ const AnimatedProductNameComponent: React.FC<AnimatedProductNameProps> = ({ name
       style={{ lineHeight }}
     >
       <div className="absolute inset-0 -top-20 h-full" style={{ zIndex: 0 }}>
-        {/* <LinedFrame height="h-full" /> */}
       </div>
 
       <div

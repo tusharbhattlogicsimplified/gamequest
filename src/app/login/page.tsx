@@ -24,10 +24,8 @@ export default function LoginPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Retrieve users from localStorage
     const users = JSON.parse(localStorage.getItem("users") || "[]");
 
-    // Find user matching username & password
     const matchingUser = users.find(
       (user: { username: string; password: string }) =>
         user.username === form.username && user.password === form.password
@@ -38,7 +36,6 @@ export default function LoginPage() {
       return;
     }
     dispatch(login(form));
-    // Login successful — you can dispatch redux action to set logged-in user if needed
     router.push("/home");
   };
 
