@@ -7,15 +7,8 @@ import { logout } from "@/store/authSlice";
 import CustomImage from "../ui/CustomImage";
 
 const navItems = [
-  { href: "/", icon: "/SidebarIcons/home.svg", label: "Home" },
-  {
-    href: "/inbox",
-    icon: "/SidebarIcons/messages.svg",
-    label: "Inbox",
-    notification: true,
-  },
-  { href: "/store", icon: "/SidebarIcons/gameStore.svg", label: "Store" },
-  { href: "/billing", icon: "/SidebarIcons/payment.svg", label: "Billing" },
+  { href: "/home", icon: "/SidebarIcons/home.svg", label: "Home" },
+  { href: "/products", icon: "/SidebarIcons/gameStore.svg", label: "Store" },
   {
     href: "/dashboard",
     icon: "/SidebarIcons/appstore.svg",
@@ -32,30 +25,33 @@ const bottomItems = [
   { href: "/logout", icon: "/SidebarIcons/logout.svg", label: "Logout" },
 ];
 
-interface SidebarProps  {
+interface SidebarProps {
   isOpen?: boolean;
   onClose?: () => void;
-};
+}
 
-export default function Sidebar({ }: SidebarProps) {
+export default function Sidebar({}: SidebarProps) {
   const dispatch = useAppDispatch();
   const router = useRouter();
 
   return (
-    <aside className="border-r border-neutral-800  flex-col py-11 h-full flex">
-      <div className="flex group hover:w-52 transition-all duration-300 w-24 bg-amber-900 justify-center">
-        <div className="flex flex-col justify-between w-24 group-hover:w-52 overflow-hidden items-center group-hover:items-start transition-all duration-300">
+    <aside className="border-r border-neutral-800  flex-col h-full flex ">
+      <div className="flex group hover:w-52 transition-all duration-300 w-24 bg-[#120c00] justify-center border-r border-neutral-600 hover:border-0 h-screen py-7">
+        <div className="flex flex-col w-24 group-hover:w-52 overflow-hidden items-center group-hover:items-start transition-all duration-300 gap-y-5 will-change-scroll">
           <div className="flex flex-col items-center px-5 py-4">
-            <CustomImage
-              src={IMAGES.gameQuestLogo.src}
-              alt={IMAGES.gameQuestLogo.alt}
-              width={50}
-              height={20}
-            />
+            <Link
+              href="/home"
+              className="hover:text-gray-400 font-standout text-[#DAB785]"
+            >
+              <h2 className="">
+                <span className="inline group-hover:hidden text-3xl">GQ</span>
+                <span className="hidden group-hover:inline text-xl">GameQuest</span>
+              </h2>
+            </Link>
           </div>
 
           <div className="pb-4 flex flex-col border-b border-neutral-800">
-            {navItems.map(({ href, icon, label, notification }) => (
+            {navItems.map(({ href, icon, label }) => (
               <Link
                 key={href}
                 href={href}
@@ -66,13 +62,9 @@ export default function Sidebar({ }: SidebarProps) {
                 <span className="hidden group-hover:inline text-sm">
                   {label || "xyzabc"}
                 </span>
-                {notification && (
-                  <span className="absolute top-2 left-7 w-2 h-2 bg-red-500 rounded-full" />
-                )}
               </Link>
             ))}
           </div>
-
 
           <div className="flex flex-col  items-center group-hover:items-start transition-all duration-300 gap-4 px-4 py-8 w-full">
             {bottomItems.map(({ href, icon, label }) => {

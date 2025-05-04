@@ -1,16 +1,21 @@
+"use client";
+
 import React, { useState, useRef, useEffect } from "react";
 import IMAGES from "@/utils/imagePaths";
 import Link from "next/link";
 import Notification from "../common/Notification";
 import CustomImage from "../ui/CustomImage";
+import Footer from "./Footer";
+import Sidebar from "./Sidebar";
 
 function Header() {
   const [showNotification, setShowNotification] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const notifRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (notifRef.current && !notifRef.current?.contains(e.target as Node)) {
+      if (notifRef.current && !notifRef.current.contains(e.target as Node)) {
         setShowNotification(false);
       }
     };
@@ -20,10 +25,18 @@ function Header() {
 
   return (
     <>
-      <header className="text-white w-full sticky top-0 z-50 bg-[#15140f] px-4 md:px-10">
+      <header className="text-white w-full sticky top-0 z-50 bg-[#0f0a00] px-4 md:pr-10 md:pl-4">
         <div className="flex justify-between py-3 md:py-8 items-center">
+          {/* Desktop Navigation */}
           <nav className="hidden sm:flex items-center gap-6 text-white/80">
-            <Link href="/" className="hover:text-gray-400">
+            <Link
+              href="/home"
+              className="hover:text-gray-400 font-standout text-[#DAB785] px-3"
+            >
+              <h2 className="text-3xl">GQ</h2>
+            </Link>
+
+            <Link href="/home" className="hover:text-gray-400">
               Home
             </Link>
             <span className="h-5 w-px bg-gray-600" />
@@ -32,8 +45,9 @@ function Header() {
             </Link>
           </nav>
 
+          {/* Hamburger Menu for Mobile */}
           <div className="flex sm:hidden">
-            <button onClick={() => ({})}>
+            <button onClick={() => setIsSidebarOpen((prev) => !prev)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -52,6 +66,7 @@ function Header() {
           </div>
 
           <div className="flex justify-between items-center gap-6 relative">
+            {/* Desktop Search */}
             <div className="hidden sm:flex w-96 px-5 py-2 rounded-full bg-transparent border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 gap-x-4">
               <CustomImage
                 src={IMAGES.searchIcon.src}
@@ -66,6 +81,7 @@ function Header() {
               />
             </div>
 
+            {/* Mobile Search */}
             <div className="flex sm:hidden">
               <button>
                 <CustomImage
@@ -79,6 +95,7 @@ function Header() {
 
             <span className="h-5 w-px bg-gray-600" />
 
+            {/* Notification */}
             <div className="relative" ref={notifRef}>
               <button onClick={() => setShowNotification(!showNotification)}>
                 <CustomImage
@@ -99,6 +116,8 @@ function Header() {
             </div>
 
             <span className="h-5 w-px bg-gray-600" />
+
+            {/* Shopping Icon */}
             <div>
               <CustomImage
                 src={IMAGES.shopIcon.src}
@@ -110,6 +129,13 @@ function Header() {
           </div>
         </div>
       </header>
+
+      {/* Sidebar Overlay */}
+      {isSidebarOpen && (
+        <div className="fixed z-50">
+          <Sidebar />
+        </div>
+      )}
     </>
   );
 }

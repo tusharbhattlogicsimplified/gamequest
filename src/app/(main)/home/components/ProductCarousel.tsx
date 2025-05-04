@@ -89,7 +89,7 @@ function CarouselItem({ product }: { product: Product }) {
 
           <div className="flex flex-wrap items-center gap-4">
             <div className="flex flex-col gap-y-2">
-              <Link href={`/product/${product?.id}`}>
+              <Link href={`/product-details/${product?.id}`}>
                 <Button text="Buy Now" className="text-lg px-10 py-2.5" />
               </Link>
               <p className="text-sm ml-1">Buy now for ${product?.price} only</p>

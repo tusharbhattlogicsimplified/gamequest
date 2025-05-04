@@ -51,7 +51,7 @@ function ProductDetails({ product }: ProductDetailsProps): JSX.Element {
       <div className="flex flex-col w-full">
         <div className="w-full flex justify-center">
           <div className="flex flex-col justify-center items-center md:w-4/5">
-            <div className="w-full py-10 bg-[#701d2526] flex flex-col gap-y-28">
+            <div className="w-full py-10 bg-[#281E1F4D]/30 flex flex-col gap-y-28">
               <div>
                 <LabelStrip
                   content={`Return Policy : ` + product.returnPolicy}
@@ -60,7 +60,9 @@ function ProductDetails({ product }: ProductDetailsProps): JSX.Element {
               </div>
               <div className="px-10 flex flex-col gap-y-18">
                 <div className="w-full flex flex-col justify-center gap-y-16">
-                  <AnimatedProductName name="League of Legends" />
+                  <AnimatedProductName
+                    name={product.title.split(" ").slice(0, 2).join(" ")}
+                  />
                   <div className="flex flex-col gap-y-5">
                     <div className="flex justify-center">
                       <Button

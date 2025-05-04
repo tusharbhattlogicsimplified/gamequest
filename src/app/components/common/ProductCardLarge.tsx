@@ -49,7 +49,7 @@ const ProductCardLarge: React.FC<ProductCardLargeProps> = ({
 
             <div className="flex flex-wrap gap-x-8">
               <div className="flex flex-col gap-y-2">
-                <Link href={`/product/${productData?.id}`}>
+                <Link href={`/product-details/${productData?.id}`}>
                   <Button text="Buy Now" className="text-lg px-10 py-2.5" />
                 </Link>
                 <p className="text-md">

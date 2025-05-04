@@ -14,7 +14,7 @@ const ProductCardSmall: React.FC<ProductCardSmallProps> = ({
 }) => {
   return (
     <>
-      <Link href={`/product/${productData.id}`}>
+      <Link href={`/product-details/${productData.id}`}>
         <div className="bg-yellow-100 rounded-lg shadow-md p-4 flex-shrink-0 min-w-[341px] max-w-[350px] h-[383px] flex flex-col justify-between">
           <div>
             <span className="bg-[#3D352A] text-white rounded-full px-2 py-0.5 text-[10px]">

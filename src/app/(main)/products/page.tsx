@@ -6,10 +6,10 @@ import {
   fetchProductsByCategory,
 } from "@/app/services/productService";
 import { Category, Product } from "@/types/productTypes";
-import ProductCardSmall from "../components/common/ProductCardSmall";
+import ProductCardSmall from "../../components/common/ProductCardSmall";
 import FilterSidebar from "./components/FilterSiderbar";
-import SortDropdown from "../components/ui/SortDropDown";
-import LargeProductBannersSection from "../components/common/LargeProductBannersSection";
+import SortDropdown from "../../components/ui/SortDropDown";
+import LargeProductBannersSection from "../../components/common/LargeProductBannersSection";
 
 function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);

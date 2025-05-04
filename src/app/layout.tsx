@@ -56,7 +56,8 @@ const algerian = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-algerian",
+  variable
+  : "--font-algerian",
   display: "swap",
   preload: true,
 });
@@ -80,9 +81,9 @@ export default function RootLayout({
             <LoaderProvider>
               <LoaderWrapper>
                 <div className=" ">
-                  <Header />
+                  {/* <Header /> */}
                   {children}
-                  <Footer />
+                  {/* <Footer /> */}
                 </div>
               </LoaderWrapper>
             </LoaderProvider>

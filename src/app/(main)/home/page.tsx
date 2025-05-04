@@ -1,14 +1,14 @@
 "use client";
 import React, { ReactNode, useEffect, useState } from "react";
-import Sidebar from "../components/layout/Sidebar";
+import Sidebar from "../../components/layout/Sidebar";
 import ProductCarousel from "./components/ProductCarousel";
-import ProductCardLarge from "../components/common/ProductCardLarge";
+import ProductCardLarge from "../../components/common/ProductCardLarge";
 import { fetchProducts } from "@/app/services/productService";
 import { Product } from "@/types/productTypes";
-import SmallProductCardSection from "../components/common/SmallProductCarousel";
+import SmallProductCardSection from "../../components/common/SmallProductCarousel";
 import Link from "next/link";
 import IMAGES from "@/utils/imagePaths";
-import CustomImage from "../components/ui/CustomImage";
+import CustomImage from "../../components/ui/CustomImage";
 
 interface PageSectionProps {
   children: ReactNode;
@@ -51,7 +51,7 @@ function Landing() {
       <div className="relative flex mb-12">
         <div className="flex-1 flex flex-col relative z-0">
           <main className="">
-            <PageSection className="px-8 md:px-16 bg-black/50">
+            <PageSection className="px-8 md:px-16 bg-black/20">
               <ProductCarousel products={products} />
             </PageSection>
 
@@ -83,22 +83,22 @@ function Landing() {
             </PageSection>
 
             <div className="flex flex-col gap-y-10">
-              <PageSection className="bg-black/50 py-10">
+              <PageSection className="bg-black/20 py-10">
                 <ProductCardLarge productData={products[0]} alignment="right" />
               </PageSection>
-              <PageSection className="bg-black/50 py-10">
+              <PageSection className="bg-black/20 py-10">
                 <ProductCardLarge
                   productData={products[1]}
                   alignment="center"
                 />
               </PageSection>
-              <PageSection className="bg-black/50 py-10">
+              <PageSection className="bg-black/20 py-10">
                 <ProductCardLarge productData={products[2]} alignment="left" />
               </PageSection>
             </div>
           </main>
         </div>
-        <div className="absolute top-0 left-0 h-full w-24 border-r-1 border-white/30 z-20  flex-col bg-none hidden md:flex">
+        <div className="fixed top-0 left-0 h-full w-24 border-r-1 border-white/30 z-50  flex-col bg-none hidden md:flex">
           <Sidebar />
         </div>
       </div>
