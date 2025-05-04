@@ -1,17 +1,16 @@
 "use client";
-import { useState } from "react";
 import { Category } from "@/types/productTypes";
 import Button from "@/app/components/ui/Button";
 
-const platforms = [
-  "PC",
-  "PlayStation 5",
-  "PlayStation 4",
-  "Xbox Series",
-  "Nintendo Switch",
-];
-const types = ["Paid", "Free"];
-const ratings = [4, 3, 2, 1];
+// const platforms = [
+//   "PC",
+//   "PlayStation 5",
+//   "PlayStation 4",
+//   "Xbox Series",
+//   "Nintendo Switch",
+// ];
+// const types = ["Paid", "Free"];
+// const ratings = [4, 3, 2, 1];
 
 export default function FilterSidebar({
   categories,
@@ -24,7 +23,7 @@ export default function FilterSidebar({
   setSelectedCategories: React.Dispatch<React.SetStateAction<string[]>>;
   onApply: () => void;
 }) {
-  const [priceRange, setPriceRange] = useState([40, 55]);
+  // const [priceRange, setPriceRange] = useState([40, 55]);
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategories((prevSelectedCategories) =>
@@ -120,10 +119,10 @@ const CheckboxList = ({
   </div>
 );
 
-const StarRating = ({ stars }: { stars: number }) => (
-  <div className="flex text-orange-400">
-    {[...Array(5)].map((_, i) => (
-      <span key={i}>{i < stars ? "★" : "☆"}</span>
-    ))}
-  </div>
-);
+// const StarRating = ({ stars }: { stars: number }) => (
+//   <div className="flex text-orange-400">
+//     {[...Array(5)].map((_, i) => (
+//       <span key={i}>{i < stars ? "★" : "☆"}</span>
+//     ))}
+//   </div>
+// );
