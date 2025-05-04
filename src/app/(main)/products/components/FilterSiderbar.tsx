@@ -44,68 +44,7 @@ export default function FilterSidebar({
         />
       </Section>
 
-      <Section title="Platforms">
-        <CheckboxList items={platforms} />
-      </Section>
-
-      <Section title="Type">
-        <CheckboxList items={types} />
-      </Section>
-
-      <Section title="Price">
-        <div className="flex items-center gap-4">
-          {/* First input */}
-          <div className="border-2 border-white/30 bg-[#2a2117] rounded-xl w-28 h-12 flex items-center justify-center px-5">
-            <span className="text-white mr-1">$</span>
-            <input
-              type="number"
-              value={priceRange[0]}
-              onChange={(e) => {
-                const updated = [Number(e.target.value), priceRange[1]] as [
-                  number,
-                  number
-                ];
-                setPriceRange(updated);
-              }}
-              className="bg-transparent text-white w-full focus:outline-none text-center"
-            />
-          </div>
-
-          {/* Separator */}
-          <span className="text-white text-xl">-</span>
-
-          {/* Second input */}
-          <div className="border-2 border-white/30 bg-[#2a2117] rounded-xl w-28 h-12 flex items-center justify-center px-5">
-            <span className="text-white mr-1">$</span>
-            <input
-              type="number"
-              value={priceRange[1]}
-              onChange={(e) => {
-                const updated = [priceRange[0], Number(e.target.value)] as [
-                  number,
-                  number
-                ];
-                setPriceRange(updated);
-              }}
-              className="bg-transparent text-white w-full focus:outline-none text-center"
-            />
-          </div>
-        </div>
-      </Section>
-
-      <Section title="Ratings">
-        <div className="space-y-2">
-          {ratings.map((stars) => (
-            <label
-              key={stars}
-              className="flex items-center gap-2 cursor-pointer"
-            >
-              <StarRating stars={stars} />
-              <span className="text-sm text-gray-300">& Up</span>
-            </label>
-          ))}
-        </div>
-      </Section>
+    
 
       <Button text="Apply Filters" onClick={onApply} className="w-full" />
     </aside>

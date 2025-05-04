@@ -102,6 +102,7 @@ function Header() {
                   width={40}
                   height={40}
                   alt={IMAGES.notificationIcon.alt}
+                  className="cursor-pointer"
                 />
               </button>
               {showNotification && (
@@ -118,12 +119,14 @@ function Header() {
 
             {/* Shopping Icon */}
             <div>
-              <CustomImage
-                src={IMAGES.shopIcon.src}
-                width={40}
-                height={40}
-                alt={IMAGES.shopIcon.alt}
-              />
+              <Link href={"/products"}>
+                <CustomImage
+                  src={IMAGES.shopIcon.src}
+                  width={40}
+                  height={40}
+                  alt={IMAGES.shopIcon.alt}
+                />
+              </Link>
             </div>
           </div>
         </div>
