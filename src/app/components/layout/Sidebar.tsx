@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/store/hooks";
 import { logout } from "@/store/authSlice";
-import CustomImage from "../ui/CustomImage";
+import Image from "next/image";
 
 const navItems = [
   { href: "/home", icon: "/SidebarIcons/home.svg", label: "Home" },
@@ -23,17 +23,12 @@ const bottomItems = [
   { href: "/logout", icon: "/SidebarIcons/logout.svg", label: "Logout" },
 ];
 
-interface SidebarProps {
-  isOpen?: boolean;
-  onClose?: () => void;
-}
-
-export default function Sidebar({}: SidebarProps) {
+export default function Sidebar() {
   const dispatch = useAppDispatch();
   const router = useRouter();
 
   return (
-    <aside className="border-r border-neutral-800  flex-col h-full flex ">
+    <aside className="border-r border-neutral-800  flex-col h-full flex">
       <div className="flex group hover:w-52 transition-all duration-300 w-24 bg-[#120c00] justify-center border-r border-neutral-600 hover:border-0 h-screen py-7">
         <div className="flex flex-col w-24 group-hover:w-52 overflow-hidden items-center group-hover:items-start transition-all duration-300 gap-y-5 will-change-scroll">
           <div className="flex flex-col items-center px-5 py-4">
@@ -56,7 +51,7 @@ export default function Sidebar({}: SidebarProps) {
                 className="relative flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white transition"
                 title={label}
               >
-                <CustomImage src={icon} alt={label} width={20} height={20} />
+                <Image src={icon} alt={label} width={20} height={20} />
                 <span className="hidden group-hover:inline text-sm">
                   {label || "xyzabc"}
                 </span>
@@ -84,7 +79,7 @@ export default function Sidebar({}: SidebarProps) {
                   className="flex  gap-3 text-gray-400 hover:text-white transition"
                   title={label}
                 >
-                  <CustomImage src={icon} alt={label} width={20} height={20} />
+                  <Image src={icon} alt={label} width={20} height={20} />
                   <span className="hidden group-hover:inline text-sm">
                     {label || "xyzabc"}
                   </span>

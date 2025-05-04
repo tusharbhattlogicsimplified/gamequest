@@ -1,15 +1,19 @@
-import IMAGES from "@/utils/imagePaths";
 import { useState, useRef, useEffect } from "react";
-import CustomImage from "./CustomImage";
+import Image from "next/image";
+import IMAGES from "@/utils/imagePaths";
 
 const SORT_OPTIONS = [
-  "Release date : Old to New",
-  "Release date : New to Old",
   "Price : Low to High",
   "Price : High to Low",
 ];
 
-export default function SortDropdown() {
+export default function SortDropdown({
+  selectedOption,
+  onChange,
+}: {
+  selectedOption: string;
+  onChange: (option: string) => void;
+}) {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
   const [dropdownClasses, setDropdownClasses] = useState("opacity-0 scale-95");
@@ -21,7 +25,7 @@ export default function SortDropdown() {
       setDropdownClasses("opacity-0 scale-95");
       setTimeout(() => {
         setDropdownClasses("opacity-100 scale-100");
-      }, 10); 
+      }, 10);
     } else {
       setDropdownClasses("opacity-0 scale-95");
       setTimeout(() => {
@@ -47,10 +51,10 @@ export default function SortDropdown() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setOpen(!open)}
-        className="px-4 py-2 rounded-full border text-white border-white flex items-center gap-2 text-[15px]"
+        className="px-4 py-2 rounded-full border-2 text-white border-white/60 flex items-center gap-2 text-[15px]"
       >
-        Sort by
-        <CustomImage
+        {selectedOption || "Sort by"}
+        <Image
           src={IMAGES.dropdownArrowIcon.src}
           width={10}
           height={10}
@@ -69,11 +73,12 @@ export default function SortDropdown() {
             <button
               key={option}
               onClick={() => {
+                onChange(option);
                 setOpen(false);
               }}
               className={`w-full text-left px-4 py-2 rounded-full transition ${
-                option === "selected"
-                  ? "bg-orange-500 text-white"
+                selectedOption === option
+                  ? "bg-[#E58E27] text-white"
                   : "text-white hover:bg-orange-400/20"
               }`}
             >

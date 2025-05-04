@@ -1,19 +1,21 @@
 "use client";
-
 import { useState } from "react";
-import Button from "../../components/ui/Button";
-import { InputField } from "../../components/ui/InputField";
-import { useAppDispatch } from "../../../store/hooks";
-import { useRouter } from "next/navigation";
-import { login } from "../../../store/authSlice";
+
 import Link from "next/link";
+import Button from "@/app/components/ui/Button";
+import { InputField } from "@/app/components/ui/InputField";
+import PasswordInputField from "@/app/components/ui/PasswordInputField";
+import { login } from "@/store/authSlice";
+import { useAppDispatch } from "@/store/hooks";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const dispatch = useAppDispatch();
+  const router = useRouter();
 
   const [form, setForm] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
-  const router = useRouter();
+  const [passwordVisible, setPasswordVisible] = useState(false); // Add this
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -56,22 +58,24 @@ export default function LoginPage() {
           placeholder="Enter your username"
         />
 
-        <InputField
+        <PasswordInputField
           label="Password"
           name="password"
-          type="password"
           value={form.password}
           onChange={handleChange}
           placeholder="Enter your password"
+          isPasswordVisible={passwordVisible}
+          togglePasswordVisibility={() => setPasswordVisible(!passwordVisible)}
         />
 
         {error && <p className="text-red-500 text-sm">{error}</p>}
 
         <div className="mt-10 w-full flex justify-center">
-          <Button text="Login" type="submit" className="px-14"/>
+          <Button text="Login" type="submit" className="px-14" />
         </div>
+
         <div className="w-full flex justify-center py-3 text-sm text-[#ffab44]">
-          <Link href={"/signup"}>Dont have an account?</Link>
+          <Link href={"/signup"}>Don’t have an account?</Link>
         </div>
       </form>
     </div>

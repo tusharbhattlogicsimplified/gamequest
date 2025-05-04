@@ -11,8 +11,7 @@ export const fetchProducts = async (limit?: number): Promise<ProductListResponse
   const response = await apiClient.get<ProductListResponse>(url);
   return response.data;
 };
-
-
+ 
 // Fetch product by ID
 export const fetchProductById = async (id: number): Promise<Product> => {
   const response = await apiClient.get<Product>(`/products/${id}`);

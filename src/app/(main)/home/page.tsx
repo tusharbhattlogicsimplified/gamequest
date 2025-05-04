@@ -1,7 +1,7 @@
 "use client";
 import React, { ReactNode, useEffect, useState } from "react";
 import Sidebar from "../../components/layout/Sidebar";
-import ProductCarousel from "./components/ProductCarousel";
+import ProductCarousel from "./components/HeroSectionCarousel";
 import ProductCardLarge from "../../components/common/ProductCardLarge";
 import { fetchProducts } from "@/app/services/productService";
 import { Product } from "@/types/productTypes";
@@ -9,6 +9,8 @@ import SmallProductCardSection from "../../components/common/SmallProductCarouse
 import Link from "next/link";
 import IMAGES from "@/utils/imagePaths";
 import CustomImage from "../../components/ui/CustomImage";
+import HeroSectionCarousel from "./components/HeroSectionCarousel";
+import ArrowCTA from "@/app/components/common/ArrowCTA";
 
 interface PageSectionProps {
   children: ReactNode;
@@ -51,31 +53,18 @@ function Landing() {
       <div className="relative flex mb-12">
         <div className="flex-1 flex flex-col relative z-0">
           <main className="">
-            <PageSection className="px-8 md:px-16 bg-black/20">
-              <ProductCarousel products={products} />
+            <PageSection className="px-8 md:px-10 bg-black/20">
+              <HeroSectionCarousel products={products} />
             </PageSection>
 
             <PageSection className="py-12">
               <div className="w-full flex justify-between flex-col md:flex-row px-5">
-                <h2 className="font-standout text-2xl md:text-4xl text-[#DAB785]">
+                <h2 className="font-standout text-2xl lg:text-4xl text-[#DAB785]">
                   MOST TRENDING
                 </h2>
-                <div className="flex justify-end md:justify-center items-center md:gap-x-2">
-                  <Link
-                    href={"/products"}
-                    className="uppercase text-xs md:text-lg"
-                  >
-                    Go to Product Store
-                  </Link>
-                  <CustomImage
-                    src={IMAGES.rightArrowIcon.src}
-                    width={25}
-                    height={25}
-                    alt={IMAGES.rightArrowIcon.alt}
-                  />
-                </div>
+                <ArrowCTA text="Go to product store" href="/products" />
               </div>
-              <div className="max-w-screen">
+              <div className="md:max-w-[calc(100vw-90px)] max-w-screen mx-auto overflow-hidden">
                 <div className="pl-5">
                   <SmallProductCardSection products={products} />
                 </div>

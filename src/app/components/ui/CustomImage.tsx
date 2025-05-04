@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import IMAGES from '@/utils/imagePaths';
 
@@ -25,6 +25,11 @@ const CustomImage: React.FC<CustomImageProps> = ({
 }) => {
   const [imgSrc, setImgSrc] = useState(src);
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setImgSrc(src);
+    setIsLoading(true);
+  }, [src]);
 
   const handleError = () => {
     setImgSrc(fallbackSrc); 

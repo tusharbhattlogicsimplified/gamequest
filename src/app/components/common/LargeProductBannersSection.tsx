@@ -17,7 +17,7 @@ function LargeProductBannersSection({ bannerProducts }: Props) {
   }) {
     return (
       <div >
-        <section className="relative bg-black/30 py-10"> 
+        <section className="relative bg-black/10 py-10"> 
           <div className="pl-2 md:pl-22">
             <ProductCardLarge productData={product} alignment={alignment} />
           </div>

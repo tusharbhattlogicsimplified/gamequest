@@ -1,16 +1,16 @@
-// src/app/signup/page.tsx
 "use client";
-
-import { useState } from "react";
-import { InputField } from "../../components/ui/InputField";
-import Button from "../../components/ui/Button";
-import { storeUserInLocalStorage, validatePassword } from "../../../utils/helper";
-import { useAppDispatch } from "../../../store/hooks";
-import { register } from "../../../store/authSlice";
-import { useRouter } from "next/navigation";
+import Button from "@/app/components/ui/Button";
+import { InputField } from "@/app/components/ui/InputField";
+import PasswordInputField from "@/app/components/ui/PasswordInputField";
+import { register } from "@/store/authSlice";
+import { useAppDispatch } from "@/store/hooks";
+import { validatePassword, checkUserExists, storeUserInLocalStorage } from "@/utils/helper";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
-export default function SignUpPage() {
+
+const SignUpPage = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
 
@@ -21,10 +21,12 @@ export default function SignUpPage() {
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" }); // Clear error on change
+    setErrors({ ...errors, [e.target.name]: "" });
   };
 
   const validateForm = () => {
@@ -53,21 +55,27 @@ export default function SignUpPage() {
       return;
     }
 
-    // setIsSubmitting(true);
+    const userExists = checkUserExists(form.username, form.password);
+    if (userExists) {
+      setErrors({ ...errors, username: "User already exists" });
+      return;
+    }
 
     try {
-      dispatch(register(form));
-      storeUserInLocalStorage(form);
-      console.log("Form submitted", form);
-      router.push("/login");
+      const userStored = storeUserInLocalStorage(form);
+      if (userStored) {
+        dispatch(register(form));
+        router.push("/login");
+      } else {
+        setErrors({ ...errors, username: "User already exists" });
+      }
     } catch (error) {
       console.error(error);
-    } finally {
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen  px-4">
+    <div className="flex items-center justify-center min-h-screen px-4">
       <form
         onSubmit={handleSubmit}
         className="bg-black/30 shadow-md rounded-md p-6 w-full max-w-xl px-12 py-20"
@@ -85,33 +93,38 @@ export default function SignUpPage() {
           placeholder="Enter your username"
         />
 
-        <InputField
+        <PasswordInputField
           label="Password"
           name="password"
-          type="password"
           value={form.password}
           onChange={handleChange}
           error={errors.password}
           placeholder="Enter your password"
+          isPasswordVisible={passwordVisible}
+          togglePasswordVisibility={() => setPasswordVisible(!passwordVisible)}
         />
 
-        <InputField
+        <PasswordInputField
           label="Confirm Password"
           name="confirmPassword"
-          type="password"
           value={form.confirmPassword}
           onChange={handleChange}
           error={errors.confirmPassword}
           placeholder="Confirm your password"
+          isPasswordVisible={confirmPasswordVisible}
+          togglePasswordVisibility={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
         />
 
         <div className="mt-10 w-full flex justify-center">
-          <Button text="Submit" type="submit" className="px-14"/>
+          <Button text="Submit" type="submit" className="px-14" />
         </div>
+
         <div className="w-full flex justify-center py-3 text-sm text-[#ffab44]">
           <Link href={"/login"}>Already have an account?</Link>
         </div>
       </form>
     </div>
   );
-}
+};
+
+export default SignUpPage;

@@ -9,16 +9,11 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-poppins);
-  /* Updated */
   --font-mono: var(--font-geist-mono);
   --font-title: var(--font-wallpoet);
-  /* ✅ Optional: for headings */
   --font-standout: var(--font-press_Start_2P);
-  /* ✅ Optional: for headings */
   --font-aoboshiOne: var(--font-aoboshi_One);
-  /* ✅ Optional: for headings */
   --font-algerian: var(--font-algerian);
-  /* ✅ Optional: for headings */
 
 }
 
@@ -44,21 +39,15 @@ body {
 }
 * {
   box-sizing: border-box;
-  /* margin: 0;
-  padding: 0; */
 }
 
-/* Hide scrollbar for WebKit, Firefox, and Edge */
 .no-scrollbar {
   -ms-overflow-style: none;
-  /* IE and Edge */
   scrollbar-width: none;
-  /* Firefox */
 }
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
-  /* Safari and Chrome */
 }
 
 .clip-custom-corner {
@@ -69,6 +58,55 @@ body {
       0 100%);
 }
 
-/* * {
-  @apply font-sans;
-} */
+/* ========== SCROLLBAR STYLES ========== */
+
+::-webkit-scrollbar {
+  width: 8px;            
+  height: 8px;            
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #573E1C; 
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #cfa568;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #573E1C transparent; 
+}
+
+.scrollable {
+  scrollbar-width: thin;
+  scrollbar-color: #573E1C transparent;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: #573E1C;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background-color: #cfa568;
+}
+

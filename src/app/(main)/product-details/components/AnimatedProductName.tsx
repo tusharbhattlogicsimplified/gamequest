@@ -22,7 +22,7 @@ const AnimatedProductNameComponent: React.FC<AnimatedProductNameProps> = ({ name
 
   return (
     <div
-      className="relative inline-block leading-snug text-center font-algerian text-7xl font-normal text-[#FFE3C1]"
+      className="relative inline-block leading-snug text-center font-algerian text-5xl md:text-7xl font-normal text-[#FFE3C1]"
       style={{ lineHeight }}
     >
       <div className="absolute inset-0 -top-20 h-full" style={{ zIndex: 0 }}>

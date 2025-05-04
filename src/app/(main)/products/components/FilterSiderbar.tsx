@@ -1,30 +1,23 @@
 "use client";
 import { Category } from "@/types/productTypes";
 import Button from "@/app/components/ui/Button";
-
-// const platforms = [
-//   "PC",
-//   "PlayStation 5",
-//   "PlayStation 4",
-//   "Xbox Series",
-//   "Nintendo Switch",
-// ];
-// const types = ["Paid", "Free"];
-// const ratings = [4, 3, 2, 1];
+import RatingStars from "@/app/components/ui/RatingStars";
 
 export default function FilterSidebar({
   categories,
   selectedCategories,
   setSelectedCategories,
   onApply,
+  selectedRating,
+  setSelectedRating,
 }: {
   categories: Category[];
   selectedCategories: string[];
   setSelectedCategories: React.Dispatch<React.SetStateAction<string[]>>;
-  onApply: () => void;
+  onApply: (rating: number | null) => void;
+  selectedRating: number | null;
+  setSelectedRating: React.Dispatch<React.SetStateAction<number | null>>;
 }) {
-  // const [priceRange, setPriceRange] = useState([40, 55]);
-
   const handleCategoryChange = (category: string) => {
     setSelectedCategories((prevSelectedCategories) =>
       prevSelectedCategories.includes(category)
@@ -43,9 +36,18 @@ export default function FilterSidebar({
         />
       </Section>
 
-    
+      <Section title="Ratings">
+        <RatingOptions
+          selectedRating={selectedRating}
+          onChange={setSelectedRating}
+        />
+      </Section>
 
-      <Button text="Apply Filters" onClick={onApply} className="w-full" />
+      <Button
+        text="Apply Filters"
+        onClick={() => onApply(selectedRating)}
+        className="w-full"
+      />
     </aside>
   );
 }
@@ -62,6 +64,47 @@ const Section = ({
     {children}
   </div>
 );
+const RatingOptions = ({
+  selectedRating,
+  onChange,
+}: {
+  selectedRating: number | null;
+  onChange: (rating: number) => void;
+}) => {
+  const ratingValues = [4, 3, 2, 1];
+
+  return (
+    <div>
+      {ratingValues.map((rating) => {
+        const isSelected = selectedRating === rating;
+        return (
+          <label
+            key={rating}
+            className={`
+              flex items-center gap-x-3 cursor-pointer p-2 rounded-lg transition-all duration-200
+              border border-transparent
+              ${isSelected ? "bg-[#04030189] text-orange-400 border-orange-400" : "text-gray-300 hover:bg-[#ffffff08]"}
+            `}
+          >
+            <input
+              type="radio"
+              name="rating"
+              value={rating}
+              checked={isSelected}
+              onChange={() => onChange(rating)}
+              className="sr-only"
+            />
+            <RatingStars rating={rating} size={16} />
+            <span>& Up</span>
+          </label>
+        );
+      })}
+    </div>
+  );
+};
+
+
+
 
 const CheckboxList = ({
   items,
@@ -89,11 +132,7 @@ const CheckboxList = ({
             />
             <span
               className={`w-5 h-5 inline-block rounded-md border-2 transition-colors
-                  ${
-                    checked
-                      ? "bg-orange-500 border-orange-500"
-                      : "bg-[#2B2417] border-white/30"
-                  }`}
+                ${checked ? "bg-orange-500 border-orange-500" : "bg-[#2B2417] border-white/30"}`}
             >
               {checked && (
                 <svg
@@ -118,11 +157,3 @@ const CheckboxList = ({
     })}
   </div>
 );
-
-// const StarRating = ({ stars }: { stars: number }) => (
-//   <div className="flex text-orange-400">
-//     {[...Array(5)].map((_, i) => (
-//       <span key={i}>{i < stars ? "★" : "☆"}</span>
-//     ))}
-//   </div>
-// );

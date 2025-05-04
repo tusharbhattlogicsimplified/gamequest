@@ -3,13 +3,13 @@ import { useAppSelector } from '@/store/hooks';
 import { fetchProductById } from '@/app/services/productService';
 import { Product } from '@/types/productTypes';
 import { useParams } from 'next/navigation';
-import { useRouter } from 'next/navigation'; // ✅ Correct for App Router
+import { useRouter } from 'next/navigation'; 
 import { useState, useEffect } from 'react';
 import ProductDetails from '../components/ProductDetails';
 
 export default function ProductDetailsPage() {
-  const { id } = useParams(); // Use `useParams` to get the dynamic parameter
-  const router = useRouter(); // use this instead of direct import
+  const { id } = useParams(); 
+  const router = useRouter(); 
 
   const [product, setProduct] = useState<Product | null>(null);
   const user = useAppSelector((state) => state.auth.user);

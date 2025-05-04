@@ -16,6 +16,7 @@ import { fetchProductsByCategory } from "@/app/services/productService";
 import Link from "next/link";
 import { useLoader } from "@/contexts/LoaderContext";
 import CustomImage from "@/app/components/ui/CustomImage";
+import ArrowCTA from "@/app/components/common/ArrowCTA";
 
 interface ProductDetailsProps {
   product: Product;
@@ -51,7 +52,7 @@ function ProductDetails({ product }: ProductDetailsProps): JSX.Element {
       <div className="flex flex-col w-full">
         <div className="w-full flex justify-center">
           <div className="flex flex-col justify-center items-center md:w-4/5">
-            <div className="w-full py-10 bg-[#281E1F4D]/30 flex flex-col gap-y-28">
+            <div className="w-full py-10 bg-[#281E1F4D]/40 flex flex-col gap-y-28">
               <div>
                 <LabelStrip
                   content={`Return Policy : ` + product.returnPolicy}
@@ -90,17 +91,7 @@ function ProductDetails({ product }: ProductDetailsProps): JSX.Element {
     return (
       <div className="flex justify-between py-5 px-5 md:px-20 flex-col md:items-center md:flex-row gap-y-2">
         <h3 className="text-xl md:text-2xl">{heading}</h3>
-        <Link href={"/products"}>
-          <div className="uppercase flex gap-x-2">
-            <p className="text-sm md:text-lg">View All</p>
-            <CustomImage
-              src={IMAGES.rightArrowIcon.src}
-              width={30}
-              height={30}
-              alt={IMAGES.rightArrowIcon.alt}
-            />
-          </div>
-        </Link>
+        <ArrowCTA text="VIEW ALL" href="/products"/>
       </div>
     );
   }
@@ -111,7 +102,7 @@ function ProductDetails({ product }: ProductDetailsProps): JSX.Element {
   }) => {
     return (
       <section
-        className={`relative  w-full flex justify-center ${className} md:pl-25`}
+        className={`relative w-full flex justify-center ${className} md:pl-25`}
       >
         <div className=" w-full flex justify-center border-l border-white/30  items-center">
           {children}
@@ -153,7 +144,7 @@ function ProductDetails({ product }: ProductDetailsProps): JSX.Element {
         <PageSection className="bg-black">
           <ChampionSections product={product} />
         </PageSection>
-        <PageSection className="bg-black/30 ">
+        <PageSection className="bg-black/20 ">
           <Arenas />
         </PageSection>
         <PageSection>
@@ -164,7 +155,7 @@ function ProductDetails({ product }: ProductDetailsProps): JSX.Element {
         <PageSection>
           <ReviewsCarousel reviews={product.reviews} />
         </PageSection>
-        <PageSection className="bg-black/30">
+        <PageSection className="bg-black/20">
           <SecondaryProductBanner product={product} />
         </PageSection>
         <PageSection>

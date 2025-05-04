@@ -28,7 +28,7 @@ export interface Category {
 export interface Review {
   rating: number;
   comment: string;
-  date: string; // ISO date string
+  date: string; 
   reviewerName: string;
   reviewerEmail: string;
 }
