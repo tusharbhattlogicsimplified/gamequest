@@ -1,4 +1,4 @@
-import IMAGES from "@/app/utils/imagePaths";
+import IMAGES from "@/utils/imagePaths";
 import CustomImage from "./CustomImage";
 
 interface RatingStarsProps {

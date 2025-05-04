@@ -3,7 +3,7 @@ import Button from "../ui/Button";
 import RatingStars from "../ui/RatingStars";
 import AvailableOn from "./AvailableOn";
 import Link from "next/link";
-import { Product } from "@/app/types/productTypes";
+import { Product } from "@/types/productTypes";
 
 type Alignment = "left" | "center" | "right";
 

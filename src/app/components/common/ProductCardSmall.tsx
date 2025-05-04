@@ -1,7 +1,7 @@
 import Button from "../ui/Button";
 import RatingStars from "../ui/RatingStars";
 import Link from "next/link";
-import { Product } from "@/app/types/productTypes";
+import { Product } from "@/types/productTypes";
 import CustomImage from "../ui/CustomImage";
 
 interface ProductCardSmallProps {
@@ -58,7 +58,7 @@ const ProductCardSmall: React.FC<ProductCardSmallProps> = ({
               <span className="font-semibold text-lg text-[#281E1F] mr-3">
                 ${productData?.price}
               </span>
-              <Button text="Buy Now" className="w-full font-semibold " />
+              <Button text="Buy Now" className="w-full font-semibold hover:bg-[#422400] hover:text-[#ffffff]" />
             </div>
           </div>
         </div>

@@ -13,11 +13,15 @@ const Button: React.FC<ButtonProps> = ({
   type = 'button',
   className = '',
 }) => {
+  const hasCustomHover = className.includes('hover:');
+
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`px-4 md:px-8 py-2 rounded-3xl text-white bg-[#E58E27] hover:bg-[#cf7d1d] transition duration-200 ${className}`}
+      className={`px-4 md:px-8 py-2 rounded-3xl text-white bg-[#E58E27] transition duration-200 cursor-pointer font-semibold ${
+        hasCustomHover ? '' : 'hover:bg-[#ffffff] hover:text-[#E58E27]'
+      } ${className}`}
     >
       {text}
     </button>

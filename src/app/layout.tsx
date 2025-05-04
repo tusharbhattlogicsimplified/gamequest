@@ -8,10 +8,10 @@ import {
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
-import { LoaderProvider } from "@/app/contexts/LoaderContext";
+import { LoaderProvider } from "@/contexts/LoaderContext";
 import { LoaderWrapper } from "./components/common/LoaderWrapper";
 import { Provider } from "react-redux";
-import {  store } from "./store";
+import {  store } from "../store";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 

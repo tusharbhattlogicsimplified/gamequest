@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import IMAGES from "@/app/utils/imagePaths";
+import IMAGES from "@/utils/imagePaths";
 import Link from "next/link";
 import Notification from "../common/Notification";
 import CustomImage from "../ui/CustomImage";

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import IMAGES from '@/app/utils/imagePaths'; // Adjust the import path
+import IMAGES from '@/utils/imagePaths'; // Adjust the import path
 
 interface CustomImageProps {
   src: string;

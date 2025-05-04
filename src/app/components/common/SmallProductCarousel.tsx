@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import ProductCardSmall from './ProductCardSmall';
-import { Product } from '@/app/types/productTypes';
+import { Product } from '@/types/productTypes';
 
 interface SmallProductCardSectionProps {
   products: Product[];

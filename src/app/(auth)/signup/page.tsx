@@ -2,11 +2,11 @@
 "use client";
 
 import { useState } from "react";
-import { InputField } from "../components/ui/InputField";
-import Button from "../components/ui/Button";
-import { storeUserInLocalStorage, validatePassword } from "../utitls/helper";
-import { useAppDispatch } from "../store/hooks";
-import { register } from "../store/authSlice";
+import { InputField } from "../../components/ui/InputField";
+import Button from "../../components/ui/Button";
+import { storeUserInLocalStorage, validatePassword } from "../../../utils/helper";
+import { useAppDispatch } from "../../../store/hooks";
+import { register } from "../../../store/authSlice";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 

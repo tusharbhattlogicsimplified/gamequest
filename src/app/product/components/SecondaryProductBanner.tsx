@@ -1,6 +1,6 @@
 import AvailableOn from "@/app/components/common/AvailableOn";
 import Button from "@/app/components/ui/Button";
-import { Product } from "@/app/types/productTypes";
+import { Product } from "@/types/productTypes";
 import React from "react";
 
 function SecondaryProductBanner({ product }: { product: Product }) {

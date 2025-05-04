@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Category } from "@/app/types/productTypes";
+import { Category } from "@/types/productTypes";
 import Button from "@/app/components/ui/Button";
 
 const platforms = [

@@ -4,10 +4,10 @@ import Sidebar from "../components/layout/Sidebar";
 import ProductCarousel from "./components/ProductCarousel";
 import ProductCardLarge from "../components/common/ProductCardLarge";
 import { fetchProducts } from "@/app/services/productService";
-import { Product } from "@/app/types/productTypes";
+import { Product } from "@/types/productTypes";
 import SmallProductCardSection from "../components/common/SmallProductCarousel";
 import Link from "next/link";
-import IMAGES from "@/app/utils/imagePaths";
+import IMAGES from "@/utils/imagePaths";
 import CustomImage from "../components/ui/CustomImage";
 
 interface PageSectionProps {

@@ -1,6 +1,6 @@
 "use client";
 import React, { JSX, ReactNode, useEffect, useState } from "react";
-import { Product } from "@/app/types/productTypes";
+import { Product } from "@/types/productTypes";
 import LabelStrip from "@/app/components/ui/LabelStrip";
 import RatingStars from "@/app/components/ui/RatingStars";
 import AnimatedProductName from "./AnimatedProductName";
@@ -9,12 +9,12 @@ import AvailableOn from "@/app/components/common/AvailableOn";
 import ChampionSections from "./ChampionSections";
 import Arenas from "./Arenas";
 import ReviewsCarousel from "./ReviewsCarousel";
-import IMAGES from "@/app/utils/imagePaths";
+import IMAGES from "@/utils/imagePaths";
 import SecondaryProductBanner from "./SecondaryProductBanner";
 import SmallProductCardSection from "@/app/components/common/SmallProductCarousel";
 import { fetchProductsByCategory } from "@/app/services/productService";
 import Link from "next/link";
-import { useLoader } from "@/app/contexts/LoaderContext";
+import { useLoader } from "@/contexts/LoaderContext";
 import CustomImage from "@/app/components/ui/CustomImage";
 
 interface ProductDetailsProps {

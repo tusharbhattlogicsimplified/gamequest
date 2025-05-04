@@ -25,11 +25,9 @@
 }
 
 body {
-  /* overflow-x: hidden; */
 
   background: var(--background);
   color: var(--foreground);
-  @apply font-sans; /* Use Tailwind font class instead of hardcoded font-family */
   overflow-x: hidden;
 }
 

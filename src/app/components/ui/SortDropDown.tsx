@@ -1,4 +1,4 @@
-import IMAGES from "@/app/utils/imagePaths";
+import IMAGES from "@/utils/imagePaths";
 import { useState, useRef, useEffect } from "react";
 import CustomImage from "./CustomImage";
 

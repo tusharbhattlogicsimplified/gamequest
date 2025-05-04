@@ -11,7 +11,7 @@ export const Loader: React.FC<LoaderProps> = ({ isVisible }) => {
       document.body.style.overflow = "hidden";
     } else {
       setTimeout(() => {
-        document.body.style.overflow = "auto";
+        document.body.style.overflowY = "auto";
       }, 500);
     }
 

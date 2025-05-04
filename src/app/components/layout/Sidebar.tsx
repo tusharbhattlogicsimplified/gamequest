@@ -1,9 +1,9 @@
 import Link from "next/link";
-import IMAGES from "@/app/utils/imagePaths";
+import IMAGES from "@/utils/imagePaths";
 
 import { useRouter } from "next/navigation";
-import { useAppDispatch } from "@/app/store/hooks";
-import { logout } from "@/app/store/authSlice";
+import { useAppDispatch } from "@/store/hooks";
+import { logout } from "@/store/authSlice";
 import CustomImage from "../ui/CustomImage";
 
 const navItems = [
