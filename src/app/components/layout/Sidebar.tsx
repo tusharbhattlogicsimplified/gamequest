@@ -1,6 +1,4 @@
 import Link from "next/link";
-import IMAGES from "@/utils/imagePaths";
-
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/store/hooks";
 import { logout } from "@/store/authSlice";

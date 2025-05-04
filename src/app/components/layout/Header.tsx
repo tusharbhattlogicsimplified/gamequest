@@ -5,7 +5,6 @@ import IMAGES from "@/utils/imagePaths";
 import Link from "next/link";
 import Notification from "../common/Notification";
 import CustomImage from "../ui/CustomImage";
-import Footer from "./Footer";
 import Sidebar from "./Sidebar";
 
 function Header() {
