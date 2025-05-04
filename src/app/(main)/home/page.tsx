@@ -1,14 +1,10 @@
 "use client";
 import React, { ReactNode, useEffect, useState } from "react";
 import Sidebar from "../../components/layout/Sidebar";
-import ProductCarousel from "./components/HeroSectionCarousel";
 import ProductCardLarge from "../../components/common/ProductCardLarge";
 import { fetchProducts } from "@/app/services/productService";
 import { Product } from "@/types/productTypes";
 import SmallProductCardSection from "../../components/common/SmallProductCarousel";
-import Link from "next/link";
-import IMAGES from "@/utils/imagePaths";
-import CustomImage from "../../components/ui/CustomImage";
 import HeroSectionCarousel from "./components/HeroSectionCarousel";
 import ArrowCTA from "@/app/components/common/ArrowCTA";
 

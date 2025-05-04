@@ -9,13 +9,10 @@ import AvailableOn from "@/app/components/common/AvailableOn";
 import ChampionSections from "./ChampionSections";
 import Arenas from "./Arenas";
 import ReviewsCarousel from "./ReviewsCarousel";
-import IMAGES from "@/utils/imagePaths";
 import SecondaryProductBanner from "./SecondaryProductBanner";
 import SmallProductCardSection from "@/app/components/common/SmallProductCarousel";
 import { fetchProductsByCategory } from "@/app/services/productService";
-import Link from "next/link";
 import { useLoader } from "@/contexts/LoaderContext";
-import CustomImage from "@/app/components/ui/CustomImage";
 import ArrowCTA from "@/app/components/common/ArrowCTA";
 
 interface ProductDetailsProps {
