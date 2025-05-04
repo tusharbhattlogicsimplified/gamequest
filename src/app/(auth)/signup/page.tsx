@@ -59,12 +59,10 @@ export default function SignUpPage() {
       dispatch(register(form));
       storeUserInLocalStorage(form);
       console.log("Form submitted", form);
-      alert("Sign up successful!");
       router.push("/login");
     } catch (error) {
       console.error(error);
     } finally {
-      // setIsSubmitting(false);
     }
   };
 
