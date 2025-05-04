@@ -18,6 +18,7 @@ const IMAGES = {
     filledStar : {src: '/Icons/filledStar.svg' , alt : 'filledStar'},
     emptyStar : {src: '/Icons/emptyStar.svg' , alt : 'emptyStar'},
     fallBackImage : {src: '/Images/GQ.png' , alt : 'GameQuest'},
+    greenDot : {src: '/Icons/greenDot.svg' , alt : 'Green Dot'},
   };
   
 export default IMAGES;

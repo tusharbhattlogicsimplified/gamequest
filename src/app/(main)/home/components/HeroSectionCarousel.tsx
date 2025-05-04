@@ -6,8 +6,14 @@ import Button from "@/app/components/ui/Button";
 import RatingStars from "@/app/components/ui/RatingStars";
 import { Product } from "@/types/productTypes";
 import CustomImage from "@/app/components/ui/CustomImage";
+import Image from "next/image";
+import IMAGES from "@/utils/imagePaths";
 
-export default function HeroSectionCarousel({ products }: { products: Product[] }) {
+export default function HeroSectionCarousel({
+  products,
+}: {
+  products: Product[];
+}) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState<"right" | "left">("right");
 
@@ -91,9 +97,15 @@ function CarouselItem({ product }: { product: Product }) {
           <AvailableOn />
         </div>
         <div className="flex flex-col gap-y-2">
-          <p className="text-xs text-green-400">
-            Discount {product?.discountPercentage}% available
-          </p>
+          <div className="text-xs flex items-center gap-x-1">
+            <Image
+              src={IMAGES.greenDot.src}
+              width={20}
+              height={20}
+              alt={IMAGES.greenDot.alt}
+            />
+            {product?.discountPercentage}% discount available
+          </div>
           <RatingStars rating={product?.rating} />
         </div>
       </div>

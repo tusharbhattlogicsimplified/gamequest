@@ -38,14 +38,14 @@ const SearchBar = () => {
 
       <div className="md:hidden">
         <button onClick={() => setIsMobileSearchOpen(true)}>
-          <Image src={IMAGES.searchIcon.src} width={24} height={24} alt="Search" />
+          <Image src={IMAGES.searchIcon.src} width={38} height={38} alt="Search" />
         </button>
       </div>
 
       {/* Mobile: full-screen overlay */}
       {isMobileSearchOpen && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center px-6">
-          <div className="flex w-full gap-2 items-center border border-white rounded-full bg-[#1c1c1c] px-4 py-2">
+          <div className="flex w-full gap-2 items-center border border-white rounded-full bg-[#1c1c1c] px-4 py-3">
             <input
               type="text"
               value={searchText}
@@ -53,7 +53,7 @@ const SearchBar = () => {
               onKeyDown={handleKeyDown}
               autoFocus
               placeholder="Search products..."
-              className="flex-1 bg-transparent outline-none placeholder-gray-400 text-white text-sm"
+              className="flex-1 bg-transparent outline-none placeholder-gray-400 text-white text-md"
             />
             <button onClick={handleSearch}>
               <Image src={IMAGES.searchIcon.src} width={20} height={20} alt="Search" />

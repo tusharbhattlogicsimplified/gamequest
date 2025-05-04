@@ -4,6 +4,8 @@ import RatingStars from "../ui/RatingStars";
 import AvailableOn from "./AvailableOn";
 import Link from "next/link";
 import { Product } from "@/types/productTypes";
+import Image from "next/image";
+import IMAGES from "@/utils/imagePaths";
 
 type Alignment = "left" | "center" | "right";
 
@@ -25,9 +27,15 @@ const ProductCardLarge: React.FC<ProductCardLargeProps> = ({
   return (
     <>
       <div className="md:absolute right-0  mr-8 flex flex-col gap-y-2 px-8">
-        <div className="text-xs">
-          <p>Discount {productData?.discountPercentage}% available</p>
-        </div>
+      <div className="text-xs flex items-center gap-x-1">
+            <Image
+              src={IMAGES.greenDot.src}
+              width={20}
+              height={20}
+              alt={IMAGES.greenDot.alt}
+            />
+            {productData?.discountPercentage}% discount available
+          </div>
         <RatingStars rating={productData?.rating} />
       </div>
       <div className={`flex ${alignmentClasses[alignment]} p-6  `}>

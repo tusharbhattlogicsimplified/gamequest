@@ -47,8 +47,8 @@ function ProductDetails({ product }: ProductDetailsProps): JSX.Element {
   function ProductBanner() {
     return (
       <div className="flex flex-col w-full">
-        <div className="w-full flex justify-center">
-          <div className="flex flex-col justify-center items-center md:w-4/5">
+        <div className="w-full flex justify-center ">
+          <div className="flex flex-col justify-center items-center w-full md:w-4/5">
             <div className="w-full py-10 bg-[#281E1F4D]/40 flex flex-col gap-y-28">
               <div>
                 <LabelStrip

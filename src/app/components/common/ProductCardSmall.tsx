@@ -3,23 +3,29 @@ import RatingStars from "../ui/RatingStars";
 import Link from "next/link";
 import { Product } from "@/types/productTypes";
 import CustomImage from "../ui/CustomImage";
+import Image from "next/image";
+import IMAGES from "@/utils/imagePaths";
 
 interface ProductCardSmallProps {
   productData: Product;
   onBuyClick?: () => void;
 }
 
-const ProductCardSmall: React.FC<ProductCardSmallProps> = ({
-  productData,
-}) => {
+const ProductCardSmall: React.FC<ProductCardSmallProps> = ({ productData }) => {
   return (
     <>
       <Link href={`/product-details/${productData.id}`}>
         <div className="bg-yellow-100 rounded-lg shadow-md p-4 flex-shrink-0 min-w-[341px] max-w-[350px] h-[383px] flex flex-col justify-between">
           <div>
-            <span className="bg-[#3D352A] text-white rounded-full px-2 py-0.5 text-[10px]">
+            <div className="bg-[#3D352A] text-white rounded-full pl-1 pr-3 py-0.5 text-[10px] flex w-fit items-center justify-center">
+              <Image
+                src={IMAGES.greenDot.src}
+                width={20}
+                height={20}
+                alt={IMAGES.greenDot.alt}
+              />
               Discount {productData?.discountPercentage} %
-            </span>
+            </div>
             <div className="flex items-center justify-center text-xs ">
               <CustomImage
                 src={productData?.thumbnail}
@@ -58,7 +64,10 @@ const ProductCardSmall: React.FC<ProductCardSmallProps> = ({
               <span className="font-semibold text-lg text-[#281E1F] mr-3">
                 ${productData?.price}
               </span>
-              <Button text="Buy Now" className="w-full font-semibold hover:bg-[#422400] hover:text-[#ffffff]" />
+              <Button
+                text="Buy Now"
+                className="w-full font-semibold hover:bg-[#422400] hover:text-[#ffffff]"
+              />
             </div>
           </div>
         </div>
