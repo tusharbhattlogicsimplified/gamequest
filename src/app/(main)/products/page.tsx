@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import {
   fetchAllCategories,
   fetchProducts,
@@ -12,6 +12,17 @@ import SortDropdown from "@/app/components/ui/SortDropDown";
 import FilterSidebar from "./components/FilterSiderbar";
 import { useSearchParams } from "next/navigation";
 
+function SearchQueryHandler({ onQueryChange }: { onQueryChange: (query: string) => void }) {
+  const searchParams = useSearchParams();
+  const searchQuery = searchParams.get("search")?.toLowerCase() || "";
+  
+  useEffect(() => {
+    onQueryChange(searchQuery);
+  }, [searchQuery]);
+
+  return null;
+}
+
 function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [bannerProducts, setBannerProducts] = useState<Product[]>([]);
@@ -21,16 +32,14 @@ function ProductsPage() {
   const [selectedSortOption, setSelectedSortOption] = useState<string>("");
   const [isMobileFilterVisible, setIsMobileFilterVisible] = useState(false);
   const [selectedRating, setSelectedRating] = useState<number | null>(null);
-
-  const searchParams = useSearchParams();
-  const searchQuery = searchParams.get("search")?.toLowerCase() || "";
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
     initializePage();
-  }, [searchQuery]); // Re-run when searchQuery changes
+  }, [searchQuery]);
 
   useEffect(() => {
-    updateBannerProducts();
+    setBannerProducts(products.slice(0, 3));
   }, [products]);
 
   const initializePage = async () => {
@@ -39,13 +48,8 @@ function ProductsPage() {
     await applyFilters(["All"], selectedRating);
   };
 
-  const updateBannerProducts = () => {
-    setBannerProducts(products.slice(0, 3));
-  };
-
   const applyFilters = async (categoriesToApply: string[], rating: number | null) => {
     setAppliedCategories([...categoriesToApply]);
-
     let filteredProducts: Product[] = [];
 
     if (categoriesToApply.includes("All")) {
@@ -131,7 +135,7 @@ function ProductsPage() {
             {searchQuery
               ? `"${searchQuery}" in ${appliedCategories.includes("All")
                   ? "All Categories"
-                  : appliedCategories.join(", ")}`
+                  : appliedCategories.join(", ")}` 
               : appliedCategories.includes("All")
               ? "All Categories"
               : appliedCategories.join(", ")}
@@ -158,6 +162,10 @@ function ProductsPage() {
 
   return (
     <>
+      <Suspense fallback={null}>
+        <SearchQueryHandler onQueryChange={setSearchQuery} />
+      </Suspense>
+
       <div className="min-h-screen bg-[#12121200] text-white px-2 md:px-12">
         <div className="flex gap-6 py-6">
           <div className="hidden sm:block">{renderSidebar()}</div>
