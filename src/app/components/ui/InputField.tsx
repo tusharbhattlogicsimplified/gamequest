@@ -15,7 +15,7 @@ export const InputField = ({ label, error, ...props }: InputFieldProps) => {
       </label>
       <input
         {...props}
-        className={`w-full px-5 py-3 border border-white/20 rounded-md focus:outline-none focus:border-2 text-white/80 ${
+        className={`w-full px-5 py-3 border border-white/20 rounded-md focus:outline-none text-white/80 focus:border-2  ${
           error ? 'border-red-500' : 'border-gray-300 '
         }`}
       />
